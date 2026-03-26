@@ -1,0 +1,47 @@
+{
+  "name": "graphics-press-css",
+  "version": "4.0.0",
+  "description": "A typographic and data-visualization CSS library derived from the books of Edward Tufte, the cartographic color principles of Eduard Imhof, and the typographic standards of Robert Bringhurst.",
+  "keywords": [
+    "css",
+    "typography",
+    "tufte",
+    "data-visualization",
+    "tailwind",
+    "tailwind-plugin",
+    "dataviz",
+    "sidenotes",
+    "sparklines",
+    "dark-mode"
+  ],
+  "homepage": "https://andrewxhill.github.io/tufte2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewxhill/tufte2.git"
+  },
+  "license": "MIT",
+  "author": "Graphics Press CSS Contributors",
+  "exports": {
+    ".": {
+      "default": "./css/graphics-press.css"
+    },
+    "./css": "./css/graphics-press.css",
+    "./css/min": "./css/graphics-press.min.css",
+    "./tailwind": "./tailwind/index.js"
+  },
+  "main": "./css/graphics-press.css",
+  "style": "./css/graphics-press.css",
+  "files": [
+    "css/",
+    "tailwind/",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  }
+}
