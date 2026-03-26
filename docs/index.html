@@ -43,6 +43,9 @@
     oklch(68% 0.09 72), oklch(55% 0.10 68), oklch(42% 0.10 65));
 }
 
+/* Prevent full-bleed components from overflowing the article padding */
+.small-multiples, .parallel-coords { max-width: 100%; }
+
 .chart-wrap { position: relative; }
 .chart-tooltip {
   position: absolute; pointer-events: none; opacity: 0;
@@ -338,7 +341,7 @@ document.getElementById('themeToggle')
     <circle cx="369" cy="16" r="3.5"/><circle cx="381" cy="16" r="3.5"/><circle cx="392" cy="16" r="3.5"/>
   </g>
   <g style="fill:var(--svg-ink)" opacity="0.65">
-    <circle cx="147" cy="44" r="3.5"/><circle cx="164" cy="44" r="3.5"/><circle cx="176" cy="44" r="3.5"/>
+    <circle cx="170" cy="44" r="3.5"/><circle cx="176" cy="44" r="3.5"/><circle cx="181" cy="44" r="3.5"/>
     <circle cx="181" cy="44" r="3.5"/><circle cx="187" cy="44" r="3.5"/><circle cx="193" cy="44" r="3.5"/>
     <circle cx="198" cy="44" r="3.5"/><circle cx="204" cy="44" r="3.5"/><circle cx="215" cy="44" r="3.5"/>
     <circle cx="227" cy="44" r="3.5"/><circle cx="238" cy="44" r="3.5"/><circle cx="250" cy="44" r="3.5"/>
@@ -564,26 +567,26 @@ document.getElementById('themeToggle')
     <tr>
       <td>Core API</td>
       <td class="sp-cell"><svg viewBox="0 0 100 18" width="100" height="18" overflow="visible"><polyline points="0,16 9,15 18,14 27,13 36,12 45,10 54,8 63,7 72,5 81,4 90,3 100,2" style="stroke:var(--svg-ink)" stroke-width="1.2" fill="none"/><circle cx="0" cy="16" r="2" style="fill:var(--svg-blue)"/><circle cx="100" cy="2" r="2.5" style="fill:var(--svg-red)"/></svg></td>
-      <td class="num">1,840</td><td class="num" style="color:#3a5a8c">720</td><td class="num" style="color:#b5322a">1,840</td><td class="num pos">+155%</td>
+      <td class="num">1,840</td><td class="num" style="color:var(--svg-blue)">720</td><td class="num" style="color:var(--svg-red)">1,840</td><td class="num pos">+155%</td>
     </tr>
     <tr>
       <td>Dashboard</td>
       <td class="sp-cell"><svg viewBox="0 0 100 18" width="100" height="18" overflow="visible"><polyline points="0,8 9,10 18,7 27,12 36,9 45,6 54,11 63,8 72,6 81,9 90,7 100,5" style="stroke:var(--svg-ink)" stroke-width="1.2" fill="none"/><circle cx="27" cy="12" r="2" style="fill:var(--svg-blue)"/><circle cx="100" cy="5" r="2.5" style="fill:var(--svg-red)"/></svg></td>
-      <td class="num">842</td><td class="num" style="color:#3a5a8c">604</td><td class="num" style="color:#b5322a">842</td><td class="num pos">+39%</td>
+      <td class="num">842</td><td class="num" style="color:var(--svg-blue)">604</td><td class="num" style="color:var(--svg-red)">842</td><td class="num pos">+39%</td>
     </tr>
     <tr>
       <td>Mobile SDK</td>
       <td class="sp-cell"><svg viewBox="0 0 100 18" width="100" height="18" overflow="visible"><polyline points="0,4 9,6 18,3 27,8 36,5 45,10 54,7 63,14 72,11 81,15 90,13 100,16" style="stroke:var(--svg-ink)" stroke-width="1.2" fill="none"/><circle cx="100" cy="16" r="2" style="fill:var(--svg-blue)"/><circle cx="18" cy="3" r="2.5" style="fill:var(--svg-red)"/></svg></td>
-      <td class="num">223</td><td class="num" style="color:#3a5a8c">223</td><td class="num" style="color:#b5322a">512</td><td class="num neg">-56%</td>
+      <td class="num">223</td><td class="num" style="color:var(--svg-blue)">223</td><td class="num" style="color:var(--svg-red)">512</td><td class="num neg">-56%</td>
     </tr>
     <tr>
       <td>Analytics</td>
       <td class="sp-cell"><svg viewBox="0 0 100 18" width="100" height="18" overflow="visible"><polyline points="0,14 9,13 18,15 27,12 36,14 45,11 54,13 63,10 72,12 81,9 90,11 100,8" style="stroke:var(--svg-ink)" stroke-width="1.2" fill="none"/><circle cx="18" cy="15" r="2" style="fill:var(--svg-blue)"/><circle cx="100" cy="8" r="2.5" style="fill:var(--svg-red)"/></svg></td>
-      <td class="num">1,104</td><td class="num" style="color:#3a5a8c">890</td><td class="num" style="color:#b5322a">1,104</td><td class="num pos">+24%</td>
+      <td class="num">1,104</td><td class="num" style="color:var(--svg-blue)">890</td><td class="num" style="color:var(--svg-red)">1,104</td><td class="num pos">+24%</td>
     </tr>
   </tbody>
 </table>
-<p class="small muted"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3a5a8c;vertical-align:middle;margin-right:3px"></span>Min &ensp; <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#b5322a;vertical-align:middle;margin-right:3px"></span>Last</p>
+<p class="small muted"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--svg-blue);vertical-align:middle;margin-right:3px"></span>Min &ensp; <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--svg-red);vertical-align:middle;margin-right:3px"></span>Last</p>
 
 <button class="code-toggle">Show code</button>
 <pre style="display:none"><code>&lt;table class="sparkline-table"&gt;
@@ -835,7 +838,7 @@ document.getElementById('themeToggle')
     <text x="143" y="75" text-anchor="middle">GPT-2</text>
     <text x="246" y="75" text-anchor="middle">GPT-3</text>
     <text x="417" y="75" text-anchor="middle">ChatGPT</text>
-    <text x="451" y="75" text-anchor="middle">GPT-4</text>
+    <text x="451" y="85" text-anchor="middle">GPT-4</text>
     <text x="503" y="75" text-anchor="middle">Claude 3</text>
   </g>
   <g style="stroke:var(--svg-rule)" stroke-width="0.75">
@@ -885,7 +888,7 @@ document.getElementById('themeToggle')
   <figure><svg viewBox="0 0 80 52" width="100%"><line x1="5" y1="46" x2="75" y2="46" style="stroke:var(--svg-ink)" stroke-width="0.75"/><line x1="5" y1="46" x2="5" y2="5" style="stroke:var(--svg-ink)" stroke-width="0.75"/><polyline points="5,43 20,40 35,34 50,22 65,11 75,6" style="stroke:var(--svg-red)" stroke-width="1.2" fill="none"/><polyline points="5,42 20,40 35,38 50,34 65,28 75,24" style="stroke:var(--svg-blue)" stroke-width="1.2" fill="none"/><circle cx="75" cy="6" r="1.5" style="fill:var(--svg-red)"/><circle cx="75" cy="24" r="1.5" style="fill:var(--svg-blue)"/></svg><figcaption>Denmark</figcaption></figure>
   <figure><svg viewBox="0 0 80 52" width="100%"><line x1="5" y1="46" x2="75" y2="46" style="stroke:var(--svg-ink)" stroke-width="0.75"/><line x1="5" y1="46" x2="5" y2="5" style="stroke:var(--svg-ink)" stroke-width="0.75"/><polyline points="5,44 20,43 35,42 50,40 65,37 75,33" style="stroke:var(--svg-red)" stroke-width="1.2" fill="none"/><polyline points="5,43 20,42 35,41 50,39 65,36 75,33" style="stroke:var(--svg-blue)" stroke-width="1.2" fill="none"/><circle cx="75" cy="33" r="1.5" style="fill:var(--svg-red)"/><circle cx="75" cy="33" r="1.5" style="fill:var(--svg-blue)"/></svg><figcaption>United States</figcaption></figure>
   <figure><svg viewBox="0 0 80 52" width="100%"><line x1="5" y1="46" x2="75" y2="46" style="stroke:var(--svg-ink)" stroke-width="0.75"/><line x1="5" y1="46" x2="5" y2="5" style="stroke:var(--svg-ink)" stroke-width="0.75"/><polyline points="5,42 20,38 35,30 50,20 65,10 75,5" style="stroke:var(--svg-red)" stroke-width="1.2" fill="none"/><polyline points="5,44 20,43 35,42 50,41 65,38 75,36" style="stroke:var(--svg-blue)" stroke-width="1.2" fill="none"/><circle cx="75" cy="5" r="1.5" style="fill:var(--svg-red)"/><circle cx="75" cy="36" r="1.5" style="fill:var(--svg-blue)"/></svg><figcaption>China</figcaption></figure>
-  <p class="small-multiples-xlabel"><span style="color:#b5322a">&#9632; Solar</span> &ensp; <span style="color:#3a5a8c">&#9632; Wind</span> &ensp; capacity growth 2000-2023 · same scale all panels</p>
+  <p class="small-multiples-xlabel"><span style="color:var(--svg-red)">&#9632; Solar</span> &ensp; <span style="color:var(--svg-blue)">&#9632; Wind</span> &ensp; capacity growth 2000-2023 · same scale all panels</p>
 </div>
 
 <button class="code-toggle">Show code</button>
@@ -928,7 +931,7 @@ document.getElementById('themeToggle')
       <line x1="150" y1="50" x2="330" y2="46" style="stroke:var(--svg-rule)" stroke-width="1"/>
       <circle cx="150" cy="50" r="2.5" style="fill:var(--svg-rule)"/><circle cx="330" cy="46" r="2.5" style="fill:var(--svg-rule)"/>
       <text x="142" y="54" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">Sweden</text>
-      <text x="114" y="54" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">47</text>
+      <text x="95" y="54" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">47</text>
       <text x="338" y="49" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">Sweden</text>
       <text x="362" y="49" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">48</text>
     </g>
@@ -936,7 +939,7 @@ document.getElementById('themeToggle')
       <line x1="150" y1="118" x2="330" y2="84" style="stroke:var(--svg-rule)" stroke-width="1"/>
       <circle cx="150" cy="118" r="2.5" style="fill:var(--svg-rule)"/><circle cx="330" cy="84" r="2.5" style="fill:var(--svg-rule)"/>
       <text x="142" y="122" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">France</text>
-      <text x="114" y="122" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">38</text>
+      <text x="95" y="122" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">38</text>
       <text x="338" y="87" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">France</text>
       <text x="362" y="87" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">45</text>
     </g>
@@ -944,7 +947,7 @@ document.getElementById('themeToggle')
       <line x1="150" y1="168" x2="330" y2="180" style="stroke:var(--svg-blue-light)" stroke-width="1" opacity="0.5"/>
       <circle cx="150" cy="168" r="2.5" style="fill:var(--svg-rule)"/><circle cx="330" cy="180" r="2.5" style="fill:var(--svg-rule)"/>
       <text x="142" y="172" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">UK</text>
-      <text x="114" y="172" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">28</text>
+      <text x="95" y="172" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">28</text>
       <text x="338" y="183" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">UK</text>
       <text x="362" y="183" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">26</text>
     </g>
@@ -952,7 +955,7 @@ document.getElementById('themeToggle')
       <line x1="150" y1="228" x2="330" y2="212" style="stroke:var(--svg-rule)" stroke-width="1"/>
       <circle cx="150" cy="228" r="2.5" style="fill:var(--svg-rule)"/><circle cx="330" cy="212" r="2.5" style="fill:var(--svg-rule)"/>
       <text x="142" y="232" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">Japan</text>
-      <text x="114" y="232" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">14</text>
+      <text x="95" y="232" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">14</text>
       <text x="338" y="215" font-family="Gill Sans,Calibri,sans-serif" font-size="9" style="fill:var(--svg-rule-mid)">Japan</text>
       <text x="362" y="215" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-rule)">18</text>
     </g>
@@ -960,7 +963,7 @@ document.getElementById('themeToggle')
       <line x1="150" y1="268" x2="330" y2="232" style="stroke:var(--svg-red)" stroke-width="2.2"/>
       <circle cx="150" cy="268" r="3.5" style="fill:var(--svg-red)"/><circle cx="330" cy="232" r="3.5" style="fill:var(--svg-red)"/>
       <text x="142" y="272" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="9.5" style="fill:var(--svg-ink)">United States</text>
-      <text x="114" y="272" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8.5" style="fill:var(--svg-red)">10</text>
+      <text x="95" y="272" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8.5" style="fill:var(--svg-red)">10</text>
       <text x="338" y="235" font-family="Gill Sans,Calibri,sans-serif" font-size="9.5" style="fill:var(--svg-ink)">United States</text>
       <text x="362" y="235" font-family="Gill Sans,Calibri,sans-serif" font-size="8.5" style="fill:var(--svg-red)">19</text>
     </g>
@@ -1463,12 +1466,12 @@ document.getElementById('themeToggle')
 <table>
   <thead><tr><th>Property</th><th>Value</th><th>Swatch</th></tr></thead>
   <tbody>
-    <tr><td><code>--gp-red</code></td><td><code>oklch(44% 0.14 27)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#b5322a;border-radius:2px;vertical-align:middle"></span></td></tr>
-    <tr><td><code>--gp-blue</code></td><td><code>oklch(44% 0.09 251)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#3a5a8c;border-radius:2px;vertical-align:middle"></span></td></tr>
-    <tr><td><code>--gp-green</code></td><td><code>oklch(50% 0.08 149)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#4a7a50;border-radius:2px;vertical-align:middle"></span></td></tr>
-    <tr><td><code>--gp-ochre</code></td><td><code>oklch(49% 0.10 72)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#8b6914;border-radius:2px;vertical-align:middle"></span></td></tr>
-    <tr><td><code>--gp-brown</code></td><td><code>oklch(42% 0.09 52)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#6b4423;border-radius:2px;vertical-align:middle"></span></td></tr>
-    <tr><td><code>--gp-gray-data</code></td><td><code>oklch(51% 0.002 60)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:#777777;border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-red</code></td><td><code>oklch(44% 0.14 27)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-red);border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-blue</code></td><td><code>oklch(44% 0.09 251)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-blue);border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-green</code></td><td><code>oklch(50% 0.08 149)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-green);border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-ochre</code></td><td><code>oklch(49% 0.10 72)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-ochre);border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-brown</code></td><td><code>oklch(42% 0.09 52)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-brown);border-radius:2px;vertical-align:middle"></span></td></tr>
+    <tr><td><code>--gp-gray-data</code></td><td><code>oklch(51% 0.002 60)</code></td><td><span style="display:inline-block;width:12px;height:12px;background:var(--gp-gray-data);border-radius:2px;vertical-align:middle"></span></td></tr>
   </tbody>
 </table>
 
