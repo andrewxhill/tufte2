@@ -270,17 +270,17 @@
   --svg-blue-light: #7090c8;
 }
 
-/* ── Heat table dark mode — invert lightness of inline oklch backgrounds ─────
+/* ── Heat table dark mode — darken inline oklch backgrounds ──────────────────
    Inline background:oklch() values are hardcoded for light mode. In dark mode
    the cool end (L≈95%) produces near-white cells with near-white text → unreadable.
-   brightness(0.45) + saturate(1.4) darkens the palette so cool → dark, warm → medium,
-   preserving the hue ramp while ensuring light text (oklch 90%) is always legible.  */
+   An inset box-shadow overlays a dark wash on the background without affecting
+   text color. Text is forced to light. The hue ramp is preserved.             */
 .dark .heat-table td.heat,
-.dark .heat-table td.heat-div { filter: brightness(0.45) saturate(1.4); color: oklch(93% 0.005 85); }
+.dark .heat-table td.heat-div { color: oklch(93% 0.005 85) !important; box-shadow: inset 0 0 0 100vmax oklch(17% 0.008 80 / 0.6); }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) .heat-table td.heat,
-  :root:not(.light) .heat-table td.heat-div { filter: brightness(0.45) saturate(1.4); color: oklch(93% 0.005 85); }
+  :root:not(.light) .heat-table td.heat-div { color: oklch(93% 0.005 85) !important; box-shadow: inset 0 0 0 100vmax oklch(17% 0.008 80 / 0.6); }
 }
 
    ═══════════════════════════════════════════════════════════════════════════ */
