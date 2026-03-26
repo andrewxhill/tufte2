@@ -1219,36 +1219,43 @@ document.getElementById('themeToggle')
 <div class="figure-compare">
   <figure>
     <svg viewBox="0 0 160 110" style="display:block;width:100%">
-      <rect x="5" y="5" width="150" height="98" fill="#eeeeff" style="stroke:var(--svg-ghost)" stroke-width="1"/>
+      <rect x="5" y="5" width="150" height="98" style="fill:var(--svg-faint);stroke:var(--svg-ghost)" stroke-width="1"/>
       <line x1="30" y1="15" x2="30" y2="90" style="stroke:var(--svg-ghost)" stroke-width="0.5"/>
       <line x1="75" y1="15" x2="75" y2="90" style="stroke:var(--svg-ghost)" stroke-width="0.5"/>
       <line x1="120" y1="15" x2="120" y2="90" style="stroke:var(--svg-ghost)" stroke-width="0.5"/>
-      <rect x="15" y="46" width="25" height="44" fill="#5555cc"/>
-      <rect x="60" y="56" width="25" height="34" fill="#cc5555"/>
-      <rect x="105" y="36" width="25" height="54" fill="#55aa55"/>
-      <text x="27" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-dark-rule)">A</text>
-      <text x="72" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-dark-rule)">B</text>
-      <text x="117" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-dark-rule)">C</text>
+      <rect x="15" y="46" width="25" height="44" style="fill:var(--svg-blue)"/>
+      <rect x="60" y="56" width="25" height="34" style="fill:var(--svg-red)"/>
+      <rect x="105" y="36" width="25" height="54" style="fill:var(--svg-green)"/>
+      <text x="27" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-ink)">A</text>
+      <text x="72" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-ink)">B</text>
+      <text x="117" y="100" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-ink)">C</text>
     </svg>
     <figcaption>Conventional bar chart — box border, grid lines, filled bars, high non-data-ink.</figcaption>
   </figure>
   <figure>
     <svg viewBox="0 0 160 110" style="display:block;width:100%">
-      <line x1="30" y1="34" x2="30" y2="90" style="stroke:var(--svg-ink)" stroke-width="1"/>
-      <line x1="30" y1="90" x2="74" y2="90" style="stroke:var(--svg-ink)" stroke-width="1"/>
-      <line x1="30" y1="80" x2="52" y2="80" style="stroke:var(--svg-soft)" stroke-width="1"/>
-      <line x1="30" y1="64" x2="74" y2="64" style="stroke:var(--svg-soft)" stroke-width="1"/>
-      <line x1="60" y1="87" x2="60" y2="93" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
-      <line x1="52" y1="77" x2="52" y2="83" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
-      <line x1="74" y1="61" x2="74" y2="67" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
-      <text x="25" y="93" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-dark-rule)">A</text>
-      <text x="25" y="83" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-dark-rule)">B</text>
-      <text x="25" y="67" text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-dark-rule)">C</text>
-      <text x="63" y="93" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-mid)">45</text>
-      <text x="55" y="83" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-mid)">33</text>
-      <text x="77" y="67" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-mid)">55</text>
-      <text x="30" y="102" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-margin)">0</text>
-      <text x="74" y="102" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-margin)">55</text>
+      <!-- Range frame: Y-axis spans data rows, X-axis spans data range -->
+      <line x1="38" y1="35" x2="38" y2="92" style="stroke:var(--svg-ink)" stroke-width="1"/>
+      <line x1="38" y1="92" x2="138" y2="92" style="stroke:var(--svg-ink)" stroke-width="1"/>
+      <!-- Leader lines (light) from axis to endpoint tick -->
+      <line x1="38" y1="40" x2="138" y2="40" style="stroke:var(--svg-soft)" stroke-width="0.5"/>
+      <line x1="38" y1="62" x2="98"  y2="62" style="stroke:var(--svg-soft)" stroke-width="0.5"/>
+      <line x1="38" y1="84" x2="120" y2="84" style="stroke:var(--svg-soft)" stroke-width="0.5"/>
+      <!-- Endpoint ticks — the data marks -->
+      <line x1="138" y1="36" x2="138" y2="44" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
+      <line x1="98"  y1="58" x2="98"  y2="66" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
+      <line x1="120" y1="80" x2="120" y2="88" style="stroke:var(--svg-ink)" stroke-width="1.5"/>
+      <!-- Row labels -->
+      <text x="33" y="44"  text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-ink)">C</text>
+      <text x="33" y="66"  text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-ink)">B</text>
+      <text x="33" y="88"  text-anchor="end" font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-ink)">A</text>
+      <!-- Direct value labels -->
+      <text x="142" y="44"  font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-mid)">55</text>
+      <text x="102" y="66"  font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-mid)">33</text>
+      <text x="124" y="88"  font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-mid)">45</text>
+      <!-- Axis scale -->
+      <text x="38"  y="104" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-margin)">0</text>
+      <text x="138" y="104" text-anchor="middle" font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-margin)">55</text>
     </svg>
     <figcaption>Tufte minimal — range frame, endpoint ticks, direct labels. Data-ink ratio near 1.0.</figcaption>
   </figure>
