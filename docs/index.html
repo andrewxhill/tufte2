@@ -817,46 +817,61 @@ document.getElementById('themeToggle')
 
 <p>AI milestones, 2017-2024. Periods as colored bars, events as dots on the baseline.</p>
 
-<svg viewBox="0 0 560 90" style="display:block;width:100%;max-width:var(--gp-text-width,640px);height:auto;overflow:visible;margin:var(--gp-space-lg,2rem) 0">
-  <rect x="40"  y="52" width="103" height="10" style="fill:var(--svg-blue)" opacity="0.45" rx="1"/>
-  <rect x="280" y="52" width="103" height="10" style="fill:var(--svg-green)" opacity="0.45" rx="1"/>
-  <rect x="417" y="52" width="103" height="10" style="fill:var(--svg-red)" opacity="0.45" rx="1"/>
-  <text x="40"  y="48" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-blue)">Transformer era</text>
-  <text x="280" y="48" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-green)">GPT-3 wave</text>
-  <text x="417" y="48" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-red)">Foundation models</text>
-  <line x1="40" y1="62" x2="520" y2="62" style="stroke:var(--svg-ink)" stroke-width="1"/>
+<!--
+  Timeline redesign: span 2015–2025 (10 years) for breathing room.
+  Track x: 40–540 = 500px for 10 years → 50px/year.
+  2015=40, 2016=90, 2017=140, 2018=190, 2019=240, 2020=290,
+  2021=340, 2022=390, 2023=440, 2024=490, 2025=540.
+  Baseline at y=70. Period bands at y=58. Labels alternate above/below.
+-->
+<svg viewBox="0 0 580 115" style="display:block;width:100%;max-width:var(--gp-text-width,640px);height:auto;overflow:visible;margin:var(--gp-space-lg,2rem) 0">
+  <!-- Period bands -->
+  <rect x="140" y="58" width="75" height="10" style="fill:var(--svg-blue)" opacity="0.40" rx="1"/>
+  <rect x="290" y="58" width="100" height="10" style="fill:var(--svg-green)" opacity="0.40" rx="1"/>
+  <rect x="415" y="58" width="100" height="10" style="fill:var(--svg-red)" opacity="0.40" rx="1"/>
+  <!-- Period labels (above bands) -->
+  <text x="140" y="53" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-blue)">Transformer era</text>
+  <text x="290" y="53" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-green)">GPT-3 wave</text>
+  <text x="415" y="53" font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-red)">Foundation models</text>
+  <!-- Baseline -->
+  <line x1="40" y1="70" x2="540" y2="70" style="stroke:var(--svg-ink)" stroke-width="1"/>
+  <!-- Event dots -->
   <g style="fill:var(--svg-ink)">
-    <circle cx="40"  cy="62" r="3.5"/>
-    <circle cx="143" cy="62" r="3.5"/>
-    <circle cx="246" cy="62" r="3.5"/>
-    <circle cx="417" cy="62" r="3.5"/>
-    <circle cx="451" cy="62" r="3.5"/>
-    <circle cx="503" cy="62" r="3.5"/>
+    <circle cx="140" cy="70" r="3.5"/><!-- 2017: Attention -->
+    <circle cx="240" cy="70" r="3.5"/><!-- 2019: GPT-2 -->
+    <circle cx="290" cy="70" r="3.5"/><!-- 2020: GPT-3 -->
+    <circle cx="390" cy="70" r="3.5"/><!-- 2022: ChatGPT -->
+    <circle cx="440" cy="70" r="3.5"/><!-- 2023: GPT-4 -->
+    <circle cx="490" cy="70" r="3.5"/><!-- 2024: Claude 3 -->
   </g>
-  <g font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-margin)">
-    <text x="40"  y="75" text-anchor="middle">Attention</text>
-    <text x="143" y="75" text-anchor="middle">GPT-2</text>
-    <text x="246" y="75" text-anchor="middle">GPT-3</text>
-    <text x="417" y="75" text-anchor="middle">ChatGPT</text>
-    <text x="451" y="85" text-anchor="middle">GPT-4</text>
-    <text x="503" y="75" text-anchor="middle">Claude 3</text>
+  <!-- Event labels — alternate above (y=43) and below (y=84) to avoid collision -->
+  <g font-family="Gill Sans,Calibri,sans-serif" font-size="8" style="fill:var(--svg-ink)">
+    <text x="140" y="84" text-anchor="middle">Attention</text>
+    <text x="240" y="84" text-anchor="middle">GPT-2</text>
+    <text x="290" y="84" text-anchor="middle">GPT-3</text>
+    <text x="390" y="84" text-anchor="middle">ChatGPT</text>
+    <text x="440" y="43" text-anchor="middle">GPT-4</text>
+    <text x="490" y="84" text-anchor="middle">Claude 3</text>
   </g>
+  <!-- Connector line for GPT-4 label placed above -->
+  <line x1="440" y1="45" x2="440" y2="67" style="stroke:var(--svg-ghost)" stroke-width="0.5"/>
+  <!-- Year axis ticks -->
   <g style="stroke:var(--svg-rule)" stroke-width="0.75">
-    <line x1="40"  y1="62" x2="40"  y2="67"/>
-    <line x1="109" y1="62" x2="109" y2="67"/>
-    <line x1="177" y1="62" x2="177" y2="67"/>
-    <line x1="246" y1="62" x2="246" y2="67"/>
-    <line x1="314" y1="62" x2="314" y2="67"/>
-    <line x1="383" y1="62" x2="383" y2="67"/>
-    <line x1="451" y1="62" x2="451" y2="67"/>
-    <line x1="520" y1="62" x2="520" y2="67"/>
+    <line x1="40"  y1="70" x2="40"  y2="75"/>
+    <line x1="140" y1="70" x2="140" y2="75"/>
+    <line x1="240" y1="70" x2="240" y2="75"/>
+    <line x1="340" y1="70" x2="340" y2="75"/>
+    <line x1="440" y1="70" x2="440" y2="75"/>
+    <line x1="540" y1="70" x2="540" y2="75"/>
   </g>
-  <g font-family="Gill Sans,Calibri,sans-serif" font-size="7.5" style="fill:var(--svg-ghost)" text-anchor="middle">
-    <text x="40"  y="86">2017</text>
-    <text x="177" y="86">2019</text>
-    <text x="314" y="86">2021</text>
-    <text x="451" y="86">2023</text>
-    <text x="520" y="86">2024</text>
+  <!-- Year labels -->
+  <g font-family="Gill Sans,Calibri,sans-serif" font-size="7" style="fill:var(--svg-ghost)" text-anchor="middle">
+    <text x="40"  y="98">2015</text>
+    <text x="140" y="98">2017</text>
+    <text x="240" y="98">2019</text>
+    <text x="340" y="98">2021</text>
+    <text x="440" y="98">2023</text>
+    <text x="540" y="98">2025</text>
   </g>
 </svg>
 
