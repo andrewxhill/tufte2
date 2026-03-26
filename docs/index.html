@@ -43,8 +43,8 @@
     oklch(68% 0.09 72), oklch(55% 0.10 68), oklch(42% 0.10 65));
 }
 
-/* Prevent full-bleed components from overflowing the article padding */
-.small-multiples, .parallel-coords { max-width: 100%; }
+/* Constrain full-bleed components to text column in the demo */
+.small-multiples, .parallel-coords { max-width: var(--gp-text-width); }
 
 .chart-wrap { position: relative; }
 .chart-tooltip {
