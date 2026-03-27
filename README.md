@@ -10,8 +10,9 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 - **Sidenotes & margin notes** -- CSS-only, no JavaScript required
 - **Data visualization components** -- dot charts, dumbbell charts, sparklines, bullet graphs, heat tables, slopegraphs, parallel coordinates, and more
 - **Narrative map framing** -- reusable slippy-map container, inset legend panel, and map annotation chrome for MapLibre/Leaflet examples
-- **Analytical briefing blocks** -- strategy headers, metric strips, tab rows, analytic cards, timelines, app-shell primitives, and reusable research rows for research apps
+- **Analytical briefing blocks** -- strategy headers, metric strips, tab rows, analytic cards, app-shell primitives, reusable research rows, and editorial spread layouts for research apps
 - **Chart interop tokens** -- semantic chart colors and axis/grid variables for D3, Recharts, ECharts, and hand-rolled SVG
+- **Editorial spread layouts** -- dual-column analysis blocks with deliberate chart/timeline breakout rows
 - **Dark mode** -- automatic via `prefers-color-scheme`, manual via `.dark` class
 - **Responsive** -- fluid typography, mobile sidenote toggles, adaptive chart layouts
 - **Print styles** -- optimized for paper output
@@ -23,7 +24,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.4.0/css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css">
 ```
 
 ### npm
@@ -59,7 +60,7 @@ module.exports = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.4.0/css/graphics-press.css">
+  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css">
 </head>
 <body>
   <article>
@@ -98,7 +99,7 @@ module.exports = {
 | Parallel coords | `.parallel-coords` | Multi-variable SVG |
 | Slippy map | `.gp-map-block`, `.gp-map-frame`, `.gp-map-panel` | Narrative map embed with overlay panel and key |
 | Strategy brief | `.brief-backlink`, `.brief-header`, `.metric-strip`, `.tab-nav--filled`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
-| App UI | `.gp-app-shell`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-record-list`, `.gp-chart-frame` | Tufte-compatible operational UI layer for analytics apps, research lists, and chart wrappers |
+| App UI | `.gp-app-shell`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-meter`, `.gp-record-list`, `.gp-chart-frame`, `.gp-spread` | Tufte-compatible operational UI layer for analytics apps, research lists, chart wrappers, editorial spreads, and quantitative table cells |
 | Bar chart | `.bar-chart` | Minimal tick or filled bars |
 | Pull stat | `.pull-stat` | Large featured numbers |
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |
