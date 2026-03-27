@@ -780,6 +780,8 @@
   .gp-app-status { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--gp-sans); font-size: 0.78rem; color: var(--gp-margin-ink); white-space: nowrap; }
   .gp-app-status::before { content: ""; width: 0.42rem; height: 0.42rem; border-radius: 999px; background: #79d8b9; box-shadow: 0 0 0 0.2rem oklch(82% 0.06 165 / 0.22); }
   .gp-app-main { flex: 1; width: min(100%, 100rem); padding-top: 1.35rem; padding-bottom: 1.5rem; }
+  .gp-app-main--detail { width: min(100%, 86rem); }
+  .gp-app-main--detail-wide { width: min(100%, 88rem); }
   .gp-app-frame { border-top: 0.5px solid var(--gp-light-rule); padding-top: 1rem; }
   .gp-app-footer { margin-top: auto; border-top: 0.5px solid var(--gp-light-rule); }
   .gp-app-footer__inner { min-height: 2.85rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--gp-sans); font-size: 0.76rem; color: var(--gp-margin-ink); }
@@ -794,7 +796,7 @@
   .brief-header.gp-workspace__header { grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr); gap: 1rem 2rem; }
   .gp-workspace__header .brief-header__title { font-size: clamp(2rem, 1.6vw + 1.45rem, 3rem); line-height: 0.98; }
   .gp-workspace__header .brief-header__meta { font-size: 0.82rem; }
-  .gp-workspace__header .brief-header__stat { min-width: 16rem; }
+  .gp-workspace__header .brief-header__stat { min-width: 16rem; justify-self: end; width: min(100%, 22rem); margin-left: auto; }
   .gp-workspace__tabs.tab-nav.tab-nav--filled button { font-size: 0.84rem; padding: 0.5rem 0.9rem; }
 
   .gp-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin: 0.9rem 0 1rem; }
@@ -994,6 +996,75 @@
   }
   .gp-stack-bar__segment { height: 100%; background: var(--gp-chart-neutral); }
 
+  .gp-rank-list { display: grid; gap: 0.7rem; }
+  .gp-rank-card {
+    padding: 0.85rem 0.95rem;
+    border: 0.5px solid var(--gp-light-rule);
+    background: oklch(from var(--gp-paper) calc(l - 0.008) c h);
+  }
+  .gp-rank-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.3rem;
+    font-family: var(--gp-sans);
+    font-size: 0.84rem;
+  }
+  .gp-rank-card__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    color: var(--gp-ink);
+  }
+  .gp-rank-card__swatch {
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 0.18rem;
+    flex: 0 0 auto;
+    background: var(--gp-chart-accent-1);
+  }
+  .gp-rank-card__name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .gp-rank-card__value {
+    flex: 0 0 auto;
+    font-family: var(--gp-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gp-ink);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .gp-rank-list--nested {
+    margin-top: 0.45rem;
+    margin-left: 1.25rem;
+    gap: 0.35rem;
+  }
+  .gp-rank-row { display: grid; gap: 0.12rem; }
+  .gp-rank-row__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--gp-sans);
+    font-size: 0.73rem;
+    color: var(--gp-margin-ink);
+  }
+  .gp-rank-row__name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .gp-rank-row__value {
+    flex: 0 0 auto;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
   .gp-spread {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1077,6 +1148,20 @@
     background: oklch(from var(--gp-paper) calc(l - 0.006) c h);
     font-family: var(--gp-sans);
   }
+  .gp-treemap__legend-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    min-width: 0;
+  }
+  .gp-treemap__legend-note {
+    margin-left: auto;
+    font-family: var(--gp-sans);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--gp-margin-ink);
+  }
   .gp-treemap__crumbs {
     display: flex;
     flex-wrap: wrap;
@@ -1087,8 +1172,46 @@
     font-size: 0.78rem;
     color: var(--gp-margin-ink);
   }
+  .gp-treemap__crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .gp-treemap__separator { opacity: 0.45; }
   .gp-treemap__crumbs .gp-btn { min-height: 1.8rem; }
   .gp-treemap svg { display: block; width: 100%; height: auto; }
+  .gp-treemap__tooltip {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    max-width: 25rem;
+    padding: 0.7rem 0.85rem;
+    border: 0.5px solid var(--gp-light-rule);
+    background: oklch(from var(--gp-paper) l c h / 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px oklch(from var(--gp-ink) l c h / 0.08);
+  }
+  .gp-treemap__tooltip-eyebrow {
+    margin: 0 0 0.25rem;
+    font-family: var(--gp-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gp-ghost-ink);
+  }
+  .gp-treemap__tooltip-title {
+    margin: 0;
+    font-family: var(--gp-sans);
+    font-size: 0.92rem;
+    line-height: 1.25;
+    color: var(--gp-ink);
+  }
+  .gp-treemap__tooltip-meta {
+    margin: 0.3rem 0 0;
+    font-family: var(--gp-sans);
+    font-size: 0.76rem;
+    color: var(--gp-margin-ink);
+  }
 
   /* ── Minimal bar chart ────────────────────────────────────────────────── */
 

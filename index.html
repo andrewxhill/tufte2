@@ -1865,20 +1865,20 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
 <p>Treemaps in research apps usually need more than bare rectangles. Use a quiet header, explicit legend, and breadcrumb row so category blocks, venue color, and zoom state stay legible.</p>
 
 <div class="gp-treemap__legend" style="margin-bottom:0.65rem">
-  <div class="gp-legend" style="gap:0.75rem 1rem">
-    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-1)"></span>Polymarket</span>
-    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-blue)"></span>Kalshi</span>
-    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-green)"></span>Limitless</span>
+  <div class="gp-treemap__legend-group">
+    <div class="gp-legend" style="gap:0.75rem 1rem">
+      <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-1)"></span>Polymarket</span>
+      <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-blue)"></span>Kalshi</span>
+      <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-green)"></span>Limitless</span>
+    </div>
   </div>
-  <span class="gp-note">Category blocks hold the hierarchy; venue tint differentiates the market tiles within them.</span>
+  <span class="gp-treemap__legend-note">Category blocks hold the hierarchy; venue tint differentiates the market tiles within them.</span>
 </div>
 
 <div class="gp-treemap__crumbs">
   <button class="gp-btn gp-btn--sm">All Markets</button>
-  <span class="gp-note">›</span>
-  <button class="gp-btn gp-btn--sm gp-btn--soft">Politics</button>
-  <span class="gp-note">›</span>
-  <button class="gp-btn gp-btn--sm gp-btn--soft">US Elections</button>
+  <span class="gp-treemap__crumb"><span class="gp-treemap__separator">›</span><button class="gp-btn gp-btn--sm gp-btn--soft">Politics</button></span>
+  <span class="gp-treemap__crumb"><span class="gp-treemap__separator">›</span><button class="gp-btn gp-btn--sm gp-btn--soft">US Elections</button></span>
   <button class="gp-btn gp-btn--sm" style="margin-left:0.6rem">Zoom Out</button>
 </div>
 
@@ -1921,14 +1921,77 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
   </div>
 </div>
 
-<pre style="margin-top:1rem"><code>&lt;div class="gp-treemap__legend"&gt;...&lt;/div&gt;
+<div class="gp-treemap__tooltip" style="position:relative;left:auto;top:auto;margin-top:0.8rem;display:inline-block">
+  <p class="gp-treemap__tooltip-eyebrow">US Elections</p>
+  <p class="gp-treemap__tooltip-title">Will the Democratic nominee win Arizona?</p>
+  <p class="gp-treemap__tooltip-meta" style="color:var(--gp-chart-accent-1)">Polymarket</p>
+</div>
+
+<pre style="margin-top:1rem"><code>&lt;div class="gp-treemap__legend"&gt;
+  &lt;div class="gp-treemap__legend-group"&gt;...&lt;/div&gt;
+  &lt;span class="gp-treemap__legend-note"&gt;...&lt;/span&gt;
+&lt;/div&gt;
 &lt;div class="gp-treemap__crumbs"&gt;...&lt;/div&gt;
 &lt;div class="gp-treemap"&gt;
   &lt;div class="gp-treemap__header"&gt;...&lt;/div&gt;
   &lt;div class="gp-treemap__body"&gt;
     &lt;svg&gt;...&lt;/svg&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="gp-treemap__tooltip"&gt;...&lt;/div&gt;</code></pre>
+
+<h3>Ranked Bars</h3>
+<p>Category tallies, market-share ladders, and top-N bar views should read like ranked evidence, not like a stack of random cards. Use a shared ranked-bar shell so bar tabs in analytics apps stay aligned with the rest of the system.</p>
+
+<div class="gp-panel">
+  <div class="gp-panel__header">
+    <span class="gp-panel__title">Markets by Category</span>
+    <span class="gp-panel__meta">Top-level distribution with nested subcategories</span>
+  </div>
+  <div class="gp-panel__body">
+    <div class="gp-rank-list">
+      <article class="gp-rank-card" style="background:color-mix(in oklab, var(--gp-chart-accent-1) 9%, var(--gp-paper));border-color:color-mix(in oklab, var(--gp-chart-accent-1) 28%, var(--gp-paper))">
+        <div class="gp-rank-card__header">
+          <div class="gp-rank-card__label">
+            <span class="gp-rank-card__swatch" style="background:var(--gp-chart-accent-1)"></span>
+            <span class="gp-rank-card__name">Politics</span>
+          </div>
+          <span class="gp-rank-card__value">34.7%</span>
+        </div>
+        <div class="gp-stack-bar" style="height:1rem;margin-bottom:0.45rem"><span class="gp-stack-bar__segment" style="width:34.7%;background:var(--gp-chart-accent-1)"></span></div>
+        <div class="gp-rank-list gp-rank-list--nested">
+          <div class="gp-rank-row">
+            <div class="gp-rank-row__meta"><span class="gp-rank-row__name">US Elections</span><span class="gp-rank-row__value">18.8%</span></div>
+            <div class="gp-stack-bar" style="height:0.55rem"><span class="gp-stack-bar__segment" style="width:54%;background:var(--gp-chart-accent-1);opacity:0.82"></span></div>
+          </div>
+          <div class="gp-rank-row">
+            <div class="gp-rank-row__meta"><span class="gp-rank-row__name">Congress</span><span class="gp-rank-row__value">9.4%</span></div>
+            <div class="gp-stack-bar" style="height:0.55rem"><span class="gp-stack-bar__segment" style="width:27%;background:var(--gp-chart-accent-1);opacity:0.82"></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="gp-rank-card" style="background:color-mix(in oklab, var(--gp-blue) 9%, var(--gp-paper));border-color:color-mix(in oklab, var(--gp-blue) 28%, var(--gp-paper))">
+        <div class="gp-rank-card__header">
+          <div class="gp-rank-card__label">
+            <span class="gp-rank-card__swatch" style="background:var(--gp-blue)"></span>
+            <span class="gp-rank-card__name">Geopolitics</span>
+          </div>
+          <span class="gp-rank-card__value">26.4%</span>
+        </div>
+        <div class="gp-stack-bar" style="height:1rem"><span class="gp-stack-bar__segment" style="width:26.4%;background:var(--gp-blue)"></span></div>
+      </article>
+    </div>
+    <pre style="margin-top:1rem"><code>&lt;div class="gp-rank-list"&gt;
+  &lt;article class="gp-rank-card"&gt;
+    &lt;div class="gp-rank-card__header"&gt;...&lt;/div&gt;
+    &lt;div class="gp-stack-bar"&gt;...&lt;/div&gt;
+    &lt;div class="gp-rank-list gp-rank-list--nested"&gt;
+      &lt;div class="gp-rank-row"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
 &lt;/div&gt;</code></pre>
+  </div>
+</div>
 
 <hr class="section-rule">
 <h2>CSS Custom Properties Reference</h2>
