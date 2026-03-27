@@ -22,7 +22,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.2.0/css/graphics-press.css">
 ```
 
 ### npm
@@ -58,7 +58,7 @@ module.exports = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css">
+  <link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.2.0/css/graphics-press.css">
 </head>
 <body>
   <article>
@@ -96,7 +96,7 @@ module.exports = {
 | Slopegraph | `.slopegraph-wrap` | Two-point comparison |
 | Parallel coords | `.parallel-coords` | Multi-variable SVG |
 | Slippy map | `.gp-map-block`, `.gp-map-frame`, `.gp-map-panel` | Narrative map embed with overlay panel and key |
-| Strategy brief | `.brief-header`, `.metric-strip`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
+| Strategy brief | `.brief-backlink`, `.brief-header`, `.metric-strip`, `.tab-nav--filled`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
 | Bar chart | `.bar-chart` | Minimal tick or filled bars |
 | Pull stat | `.pull-stat` | Large featured numbers |
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |
