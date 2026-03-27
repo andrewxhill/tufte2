@@ -4,7 +4,7 @@
  * A Tailwind CSS v3+ plugin that mirrors the Graphics Press CSS library.
  *
  * Usage in tailwind.config.js:
- *   const graphicsPress = require('graphics-press-css/tailwind');
+ *   const graphicsPress = require('@andrewxhill/graphics-press-css/tailwind');
  *   module.exports = { plugins: [graphicsPress] };
  *
  * MIT License. See LICENSE for details.

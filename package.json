@@ -1,6 +1,6 @@
 {
-  "name": "graphics-press-css",
-  "version": "4.2.0",
+  "name": "@andrewxhill/graphics-press-css",
+  "version": "4.2.1",
   "description": "A typographic and data-visualization CSS library derived from the books of Edward Tufte, the cartographic color principles of Eduard Imhof, and the typographic standards of Robert Bringhurst.",
   "keywords": [
     "css",
@@ -17,10 +17,14 @@
   "homepage": "https://andrewxhill.github.io/tufte2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrewxhill/tufte2.git"
+    "url": "git+https://github.com/andrewxhill/tufte2.git"
   },
   "license": "MIT",
   "author": "Graphics Press CSS Contributors",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "exports": {
     ".": {
       "default": "./css/graphics-press.css"
