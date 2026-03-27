@@ -79,7 +79,7 @@
 <article>
 
 <div class="running-header">
-  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.2</span>
+  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.4</span>
   <span>Documentation &amp; Demo</span>
 </div>
 
@@ -99,7 +99,7 @@
 
 <h3>CDN (quickstart)</h3>
 <p>Drop a single <code>&lt;link&gt;</code> tag into your HTML:</p>
-<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.3.0/css/graphics-press.css"&gt;</code></pre>
+<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.4.0/css/graphics-press.css"&gt;</code></pre>
 
 <h3>npm (raw CSS)</h3>
 <pre><code>npm install @andrewxhill/graphics-press-css</code></pre>
@@ -126,7 +126,7 @@
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.3.0/css/graphics-press.css"&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.4.0/css/graphics-press.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;article&gt;
@@ -1705,6 +1705,43 @@ map.on('load', () =&gt; {
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
 
+<h3>Chart Interop</h3>
+<p>Use semantic chart variables instead of app-local hex palettes. The same tokens can drive D3, Recharts,
+  ECharts, or plain SVG without diverging from the typographic system.</p>
+
+<div class="gp-panel">
+  <div class="gp-panel__body">
+    <div class="gp-card-grid">
+      <article class="gp-card">
+        <span class="gp-card__eyebrow">Positive / Negative</span>
+        <h3 class="gp-card__title">Use semantic outcomes first</h3>
+        <div class="gp-legend" style="margin-top:0.65rem">
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-positive)"></span>Positive</span>
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-negative)"></span>Negative</span>
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-neutral)"></span>Neutral</span>
+        </div>
+        <p class="gp-card__meta">Profit, loss, unresolved, baseline, and other semantic roles should not be re-decided per chart.</p>
+      </article>
+      <article class="gp-card">
+        <span class="gp-card__eyebrow">Accent Set</span>
+        <h3 class="gp-card__title">Shared hues for library and app charts</h3>
+        <div class="gp-legend" style="margin-top:0.65rem">
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-1)"></span>Accent 1</span>
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-2)"></span>Accent 2</span>
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-3)"></span>Accent 3</span>
+          <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-4)"></span>Accent 4</span>
+        </div>
+        <p class="gp-card__meta">Use these when a chart needs multiple peers instead of winner/loser semantics.</p>
+      </article>
+    </div>
+    <pre style="margin-top:1rem"><code>const styles = getComputedStyle(document.documentElement);
+const positive = styles.getPropertyValue('--gp-chart-positive').trim();
+const negative = styles.getPropertyValue('--gp-chart-negative').trim();
+const axis = styles.getPropertyValue('--gp-chart-axis').trim();
+const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
+  </div>
+</div>
+
 <hr class="section-rule">
 <h2>CSS Custom Properties Reference</h2>
 <p>All design tokens are CSS custom properties. Override any at <code>:root</code> to retheme
@@ -1803,7 +1840,7 @@ map.on('load', () =&gt; {
 <!-- ═══ FOOTER ═══ -->
 <hr class="section-rule">
 <p class="small muted" style="margin-top:var(--gp-space-lg)">
-  <strong>Graphics Press CSS</strong> v4.3.0 &ensp;&middot;&ensp;
+  <strong>Graphics Press CSS</strong> v4.4.0 &ensp;&middot;&ensp;
   MIT License &ensp;&middot;&ensp;
   ET Book typeface: Edward Tufte, Dmitry Krasny, Bonnie Scranton &ensp;&middot;&ensp;
   Color: Eduard Imhof, <em>Cartographic Relief Presentation</em>
