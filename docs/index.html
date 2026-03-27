@@ -1813,6 +1813,75 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
   </div>
 </div>
 
+<h3>Treemap Framing</h3>
+<p>Treemaps in research apps usually need more than bare rectangles. Use a quiet header, explicit legend, and breadcrumb row so category blocks, venue color, and zoom state stay legible.</p>
+
+<div class="gp-treemap__legend" style="margin-bottom:0.65rem">
+  <div class="gp-legend" style="gap:0.75rem 1rem">
+    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-chart-accent-1)"></span>Polymarket</span>
+    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-blue)"></span>Kalshi</span>
+    <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-green)"></span>Limitless</span>
+  </div>
+  <span class="gp-note">Category blocks hold the hierarchy; venue tint differentiates the market tiles within them.</span>
+</div>
+
+<div class="gp-treemap__crumbs">
+  <button class="gp-btn gp-btn--sm">All Markets</button>
+  <span class="gp-note">›</span>
+  <button class="gp-btn gp-btn--sm gp-btn--soft">Politics</button>
+  <span class="gp-note">›</span>
+  <button class="gp-btn gp-btn--sm gp-btn--soft">US Elections</button>
+  <button class="gp-btn gp-btn--sm" style="margin-left:0.6rem">Zoom Out</button>
+</div>
+
+<div class="gp-treemap">
+  <div class="gp-treemap__header">
+    <h4 class="gp-treemap__title">Politics — 482 markets</h4>
+    <span class="gp-treemap__meta">Treemap with category blocks and venue-tinted leaves</span>
+  </div>
+  <div class="gp-treemap__body">
+    <svg viewBox="0 0 900 360" aria-label="illustrative treemap">
+      <rect x="10" y="10" width="430" height="160" fill="color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper))" stroke="var(--gp-blue)" stroke-opacity="0.35"></rect>
+      <rect x="18" y="38" width="130" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="152" y="38" width="132" height="122" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="288" y="38" width="144" height="122" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <text x="18" y="28" class="gp-chart-label">US Elections 188</text>
+      <text x="26" y="58" class="gp-chart-axis-label">Electoral College</text>
+      <text x="160" y="58" class="gp-chart-axis-label">Nominee odds</text>
+      <text x="296" y="58" class="gp-chart-axis-label">Senate control</text>
+
+      <rect x="450" y="10" width="440" height="160" fill="color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper))" stroke="var(--gp-chart-accent-2)" stroke-opacity="0.35"></rect>
+      <rect x="458" y="38" width="178" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="640" y="38" width="118" height="122" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="762" y="38" width="120" height="122" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <text x="458" y="28" class="gp-chart-label">Geopolitics 174</text>
+      <text x="466" y="58" class="gp-chart-axis-label">Ukraine ceasefire</text>
+      <text x="648" y="58" class="gp-chart-axis-label">Taiwan</text>
+      <text x="770" y="58" class="gp-chart-axis-label">Iran</text>
+
+      <rect x="10" y="180" width="880" height="170" fill="color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper))" stroke="var(--gp-ochre)" stroke-opacity="0.35"></rect>
+      <rect x="18" y="208" width="250" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="272" y="208" width="206" height="132" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="482" y="208" width="196" height="132" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="682" y="208" width="200" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 11%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <text x="18" y="198" class="gp-chart-label">Trade Policy 120</text>
+      <text x="26" y="228" class="gp-chart-axis-label">Tariffs</text>
+      <text x="280" y="228" class="gp-chart-axis-label">Sanctions</text>
+      <text x="490" y="228" class="gp-chart-axis-label">Energy exports</text>
+      <text x="690" y="228" class="gp-chart-axis-label">China policy</text>
+    </svg>
+  </div>
+</div>
+
+<pre style="margin-top:1rem"><code>&lt;div class="gp-treemap__legend"&gt;...&lt;/div&gt;
+&lt;div class="gp-treemap__crumbs"&gt;...&lt;/div&gt;
+&lt;div class="gp-treemap"&gt;
+  &lt;div class="gp-treemap__header"&gt;...&lt;/div&gt;
+  &lt;div class="gp-treemap__body"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
 <hr class="section-rule">
 <h2>CSS Custom Properties Reference</h2>
 <p>All design tokens are CSS custom properties. Override any at <code>:root</code> to retheme

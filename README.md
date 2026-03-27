@@ -99,7 +99,7 @@ module.exports = {
 | Parallel coords | `.parallel-coords` | Multi-variable SVG |
 | Slippy map | `.gp-map-block`, `.gp-map-frame`, `.gp-map-panel` | Narrative map embed with overlay panel and key |
 | Strategy brief | `.brief-backlink`, `.brief-header`, `.metric-strip`, `.tab-nav--filled`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
-| App UI | `.gp-app-shell`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-meter`, `.gp-record-list`, `.gp-chart-frame`, `.gp-spread` | Tufte-compatible operational UI layer for analytics apps, research lists, chart wrappers, editorial spreads, and quantitative table cells |
+| App UI | `.gp-app-shell`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-meter`, `.gp-record-list`, `.gp-chart-frame`, `.gp-spread`, `.gp-treemap` | Tufte-compatible operational UI layer for analytics apps, research lists, chart wrappers, editorial spreads, treemaps, and quantitative table cells |
 | Bar chart | `.bar-chart` | Minimal tick or filled bars |
 | Pull stat | `.pull-stat` | Large featured numbers |
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |
