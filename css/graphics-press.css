@@ -1,5 +1,5 @@
 /**
- * Graphics Press CSS  v4.3.0
+ * Graphics Press CSS  v4.4.0
  * ─────────────────────────────────────────────────────────────────────────────
  * A typographic and data-visualization CSS library derived from the books
  * of Edward Tufte, the cartographic color principles of Eduard Imhof, and
@@ -147,6 +147,21 @@
     --gp-div-mid:  oklch(92%  0.004 95);
     --gp-div-hi-1: oklch(64%  0.10  27);
     --gp-div-hi-2: oklch(44%  0.14  27);
+
+    /* Chart interop palette — semantic aliases for JS charting libs ─ */
+    --gp-chart-positive:      var(--gp-green);
+    --gp-chart-positive-soft: oklch(from var(--gp-green) 93% 0.03 h / 0.35);
+    --gp-chart-negative:      var(--gp-red);
+    --gp-chart-negative-soft: oklch(from var(--gp-red) 93% 0.04 h / 0.35);
+    --gp-chart-neutral:       var(--gp-gray-data);
+    --gp-chart-accent-1:      var(--gp-blue);
+    --gp-chart-accent-2:      var(--gp-ochre);
+    --gp-chart-accent-3:      var(--gp-blue-light);
+    --gp-chart-accent-4:      var(--gp-red-light);
+    --gp-chart-grid:          oklch(from var(--gp-light-rule) l c h / 0.7);
+    --gp-chart-axis:          var(--gp-margin-ink);
+    --gp-chart-zero:          oklch(from var(--gp-rule) l c h / 0.9);
+    --gp-chart-surface:       oklch(from var(--gp-paper) calc(l - 0.012) c h);
 
     /* Animation ──────────────────────────────────────────────────── */
     --gp-ease:     cubic-bezier(0.4, 0, 0.2, 1);
@@ -452,14 +467,15 @@
   .evidence__caption { grid-column: 1 / -1; font-family: var(--gp-sans); font-size: var(--gp-caption); color: var(--gp-margin-ink); border-top: 0.5px solid var(--gp-light-rule); padding-top: var(--gp-space-xs); margin-top: var(--gp-space-xs); }
 
   /* Analytical brief framing for dashboard-like narrative pages */
-  .brief-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gp-space-md) var(--gp-space-lg); align-items: end; max-width: var(--gp-page-width); margin: var(--gp-space-lg) 0; padding-bottom: var(--gp-space-sm); border-bottom: 0.75px solid var(--gp-rule); }
+  .brief-header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, auto); gap: var(--gp-space-md) var(--gp-space-lg); align-items: end; max-width: var(--gp-page-width); margin: var(--gp-space-lg) 0; padding-bottom: var(--gp-space-sm); border-bottom: 0.75px solid var(--gp-rule); }
   .brief-header__meta { margin: 0 0 0.4rem; font-family: var(--gp-sans); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gp-ghost-ink); }
   .brief-header__title { margin: 0; max-width: none; font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem); }
   .brief-header__dek { margin: 0.45rem 0 0; max-width: 52rem; font-size: var(--gp-small); color: var(--gp-margin-ink); text-indent: 0; }
-  .brief-header__stat { text-align: right; align-self: start; min-width: 12rem; }
+  .brief-header__stat { text-align: right; align-self: start; min-width: 12rem; max-width: min(24rem, 100%); }
   .brief-header__label { display: block; margin-bottom: 0.2rem; font-family: var(--gp-sans); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gp-ghost-ink); }
   .brief-header__value { display: block; font-size: clamp(2rem, 3vw + 0.7rem, 3.1rem); line-height: 0.95; color: var(--gp-green); font-style: italic; font-variant-numeric: lining-nums tabular-nums; }
   .brief-header__subvalue { display: block; margin-top: 0.2rem; font-family: var(--gp-sans); font-size: var(--gp-caption); color: var(--gp-margin-ink); }
+  .brief-header__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.7rem; margin-top: 0.45rem; }
   .brief-backlink { display: inline-block; margin-bottom: var(--gp-space-sm); font-family: var(--gp-sans); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--gp-ghost-ink); text-decoration: none; }
   .brief-backlink:hover { color: var(--gp-ink); }
 
@@ -857,6 +873,80 @@
 
   .gp-note { font-family: var(--gp-sans); font-size: 0.82rem; color: var(--gp-margin-ink); line-height: 1.55; }
 
+  .gp-chart-frame {
+    border: 0.5px solid var(--gp-light-rule);
+    background: var(--gp-chart-surface);
+    padding: 0.85rem 0.95rem 0.95rem;
+  }
+  .gp-chart-frame svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .gp-chart-axis text,
+  .gp-chart-axis-label,
+  .gp-chart-value {
+    fill: var(--gp-chart-axis);
+    color: var(--gp-chart-axis);
+    font-family: var(--gp-sans);
+    font-size: 0.72rem;
+  }
+  .gp-chart-axis path,
+  .gp-chart-axis line { stroke: var(--gp-chart-grid); }
+  .gp-chart-gridline { stroke: var(--gp-chart-grid); stroke-dasharray: 4 3; }
+  .gp-chart-zero { stroke: var(--gp-chart-zero); stroke-dasharray: 4 3; }
+  .gp-chart-label {
+    fill: var(--gp-ink);
+    color: var(--gp-ink);
+    font-family: var(--gp-sans);
+    font-size: 0.76rem;
+  }
+
+  .gp-record-list { display: grid; gap: 0; border-top: 1px solid var(--gp-ink); }
+  .gp-record {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.9rem 1.2rem;
+    width: 100%;
+    padding: 1.1rem 0;
+    border-bottom: 0.5px solid var(--gp-light-rule);
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    text-decoration: none;
+    transition: background-color 0.16s, border-color 0.16s, color 0.16s;
+  }
+  .gp-record:hover { background: oklch(from var(--gp-paper) calc(l - 0.018) c h); }
+  .gp-record__title { margin: 0; max-width: none; font-size: 1.08rem; line-height: 1.2; }
+  .gp-record__eyebrow,
+  .gp-record__meta,
+  .gp-record__kicker {
+    font-family: var(--gp-sans);
+    color: var(--gp-margin-ink);
+  }
+  .gp-record__eyebrow,
+  .gp-record__kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gp-record__summary {
+    margin: 0.45rem 0 0;
+    max-width: 40rem;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    color: var(--gp-margin-ink);
+    text-indent: 0;
+  }
+  .gp-record__meta { display: flex; flex-wrap: wrap; gap: 0.45rem 1rem; margin-top: 0.55rem; font-size: 0.8rem; }
+  .gp-record__value { align-self: start; text-align: right; min-width: 8rem; }
+  .gp-record__value .datum { display: block; font-size: clamp(1.45rem, 1vw + 1.15rem, 2rem); line-height: 1; }
+
+  .gp-stack-bar {
+    display: flex;
+    width: 100%;
+    height: 0.78rem;
+    overflow: hidden;
+    background: oklch(from var(--gp-paper) calc(l - 0.05) c h);
+  }
+  .gp-stack-bar__segment { height: 100%; background: var(--gp-chart-neutral); }
+
   .gp-link-list { display: grid; gap: 0.5rem; }
   .gp-link-card {
     display: flex; align-items: center; gap: 0.75rem; width: 100%;
@@ -1211,6 +1301,8 @@
   .evidence__caption { grid-column: 1; }
   .brief-header { grid-template-columns: 1fr; }
   .brief-header__stat { text-align: left; min-width: 0; }
+  .gp-record { grid-template-columns: 1fr; }
+  .gp-record__value { text-align: left; min-width: 0; }
   .gp-map-frame, .gp-map { min-height: 24rem; }
   .gp-map-panel { width: min(18rem, calc(100% - 2rem)); }
   .gp-map-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1231,6 +1323,8 @@
   .metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .activity-timeline__lane { grid-template-columns: 70px 1fr; }
   .activity-timeline__value { grid-column: 2; }
+  .brief-header__actions { align-items: flex-start; }
+  .gp-record__meta { gap: 0.35rem 0.75rem; }
   .gp-map-frame, .gp-map { min-height: 21rem; }
   .gp-map-panel {
     left: var(--gp-space-sm);
