@@ -21,6 +21,10 @@
   },
   "license": "MIT",
   "author": "Graphics Press CSS Contributors",
+  "scripts": {
+    "changeset": "changeset",
+    "version-packages": "changeset version"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true
@@ -47,5 +51,8 @@
     "tailwindcss": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7"
   }
 }

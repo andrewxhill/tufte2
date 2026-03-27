@@ -1,20 +1,28 @@
 name: Publish Package
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
-  publish-npm:
+  release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
+      pull-requests: write
       id-token: write
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -22,5 +30,16 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - name: Publish to npm
-        run: npm publish
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create release PR or publish
+        uses: changesets/action@v1
+        with:
+          version: npm run version-packages
+          publish: npm publish
+          createGithubReleases: true
+          title: Release package(s)
+          commit: Release package(s)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

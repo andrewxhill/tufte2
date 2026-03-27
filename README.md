@@ -118,3 +118,27 @@ document.documentElement.classList.toggle('light');
 ## License
 
 MIT
+
+## Release Flow
+
+Releases are CI-driven with Changesets.
+
+For any PR that should publish a new package version:
+
+```bash
+npx changeset
+```
+
+Choose the release type:
+
+- `patch` for fixes and polish
+- `minor` for new backwards-compatible components or tokens
+- `major` for breaking changes
+
+When changesets land on `main`:
+
+- GitHub Actions opens or updates a release PR
+- merging that PR bumps the version and creates the release commit
+- CI tags the release, publishes to npm, creates the GitHub release, and republishes `gh-pages`
+
+Do not hand-create version tags or GitHub releases for normal package publishing.

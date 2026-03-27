@@ -1,0 +1,44 @@
+name: Publish Docs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: publish-docs
+  cancel-in-progress: true
+
+jobs:
+  publish-gh-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Publish docs to gh-pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git worktree add /tmp/tufte2-gh-pages origin/gh-pages
+          cp docs/index.html /tmp/tufte2-gh-pages/index.html
+          mkdir -p /tmp/tufte2-gh-pages/css
+          cp css/graphics-press.css /tmp/tufte2-gh-pages/css/graphics-press.css
+          cp css/graphics-press.min.css /tmp/tufte2-gh-pages/css/graphics-press.min.css
+          cd /tmp/tufte2-gh-pages
+          if git diff --quiet -- index.html css/graphics-press.css css/graphics-press.min.css; then
+            echo "No docs changes to publish"
+            exit 0
+          fi
+          git add index.html css/graphics-press.css css/graphics-press.min.css
+          git commit -m "Publish docs from ${GITHUB_SHA}"
+          git push origin HEAD:gh-pages
