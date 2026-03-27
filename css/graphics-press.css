@@ -1,5 +1,5 @@
 /**
- * Graphics Press CSS  v4.4.0
+ * Graphics Press CSS  v4.5.0
  * ─────────────────────────────────────────────────────────────────────────────
  * A typographic and data-visualization CSS library derived from the books
  * of Edward Tufte, the cartographic color principles of Eduard Imhof, and
@@ -476,6 +476,9 @@
   .brief-header__value { display: block; font-size: clamp(2rem, 3vw + 0.7rem, 3.1rem); line-height: 0.95; color: var(--gp-green); font-style: italic; font-variant-numeric: lining-nums tabular-nums; }
   .brief-header__subvalue { display: block; margin-top: 0.2rem; font-family: var(--gp-sans); font-size: var(--gp-caption); color: var(--gp-margin-ink); }
   .brief-header__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.7rem; margin-top: 0.45rem; }
+  .brief-header__title--identifier { font-family: var(--gp-mono); font-style: normal; line-height: 1.18; overflow-wrap: anywhere; word-break: break-word; }
+  .brief-header__title-row { grid-column: 1 / -1; }
+  .brief-header__meta-row { display: contents; }
   .brief-backlink { display: inline-block; margin-bottom: var(--gp-space-sm); font-family: var(--gp-sans); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--gp-ghost-ink); text-decoration: none; }
   .brief-backlink:hover { color: var(--gp-ink); }
 
@@ -867,6 +870,37 @@
   .gp-progress { position: relative; width: 100%; height: 0.4rem; overflow: hidden; background: oklch(from var(--gp-paper) calc(l - 0.05) c h); }
   .gp-progress__bar { width: var(--gp-progress, 0%); height: 100%; background: var(--gp-ink); }
 
+  .gp-meter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 7.25rem;
+    font-family: var(--gp-sans);
+    vertical-align: middle;
+  }
+  .gp-meter__track {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 4.5rem;
+    height: 0.5rem;
+    overflow: hidden;
+    background: oklch(from var(--gp-paper) calc(l - 0.05) c h);
+  }
+  .gp-meter__fill {
+    width: var(--gp-meter-value, 0%);
+    height: 100%;
+    background: var(--gp-meter-color, var(--gp-ink));
+  }
+  .gp-meter__value {
+    min-width: 2.9rem;
+    text-align: right;
+    font-family: var(--gp-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gp-ink);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
   .gp-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1rem; font-family: var(--gp-sans); font-size: 0.78rem; color: var(--gp-margin-ink); }
   .gp-legend__item { display: inline-flex; align-items: center; gap: 0.4rem; }
   .gp-legend__swatch { width: 0.62rem; height: 0.62rem; border-radius: 999px; flex: 0 0 auto; background: var(--gp-ghost-ink); }
@@ -946,6 +980,46 @@
     background: oklch(from var(--gp-paper) calc(l - 0.05) c h);
   }
   .gp-stack-bar__segment { height: 100%; background: var(--gp-chart-neutral); }
+
+  .gp-spread {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem 2rem;
+    align-items: start;
+    margin: 0 0 1.5rem;
+  }
+  .gp-spread--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gp-spread--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gp-spread__col { min-width: 0; }
+  .gp-spread__wide,
+  .gp-spread__full { grid-column: 1 / -1; min-width: 0; }
+  .gp-spread__rail {
+    padding-top: 0.1rem;
+    font-family: var(--gp-sans);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--gp-margin-ink);
+  }
+  .gp-section-head {
+    margin: 0 0 0.65rem;
+    padding-top: 0.7rem;
+    border-top: 1.5px solid var(--gp-ink);
+  }
+  .gp-section-head__title {
+    margin: 0 0 0.2rem;
+    max-width: none;
+    font-size: 1.08rem;
+    line-height: 1.2;
+  }
+  .gp-section-head__meta {
+    margin: 0;
+    max-width: 44rem;
+    font-family: var(--gp-sans);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--gp-margin-ink);
+    text-indent: 0;
+  }
 
   .gp-link-list { display: grid; gap: 0.5rem; }
   .gp-link-card {
@@ -1301,6 +1375,7 @@
   .evidence__caption { grid-column: 1; }
   .brief-header { grid-template-columns: 1fr; }
   .brief-header__stat { text-align: left; min-width: 0; }
+  .gp-spread, .gp-spread--3, .gp-spread--4 { grid-template-columns: 1fr; }
   .gp-record { grid-template-columns: 1fr; }
   .gp-record__value { text-align: left; min-width: 0; }
   .gp-map-frame, .gp-map { min-height: 24rem; }
