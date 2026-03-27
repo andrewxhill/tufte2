@@ -11,6 +11,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 - **Data visualization components** -- dot charts, dumbbell charts, sparklines, bullet graphs, heat tables, slopegraphs, parallel coordinates, and more
 - **Narrative map framing** -- reusable slippy-map container, inset legend panel, and map annotation chrome for MapLibre/Leaflet examples
 - **Analytical briefing blocks** -- strategy headers, metric strips, tab rows, analytic cards, app-shell primitives, reusable research rows, and editorial spread layouts for research apps
+- **Analytics application guidance** -- treemap framing, ranked-bar patterns, workspace shells, and table/chart rules informed by real dashboard integration work
 - **Chart interop tokens** -- semantic chart colors and axis/grid variables for D3, Recharts, ECharts, and hand-rolled SVG
 - **Editorial spread layouts** -- dual-column analysis blocks with deliberate chart/timeline breakout rows
 - **Theme-aware by default** -- follows `prefers-color-scheme`; manual override via `.dark`, `.light`, or `[data-theme]`
@@ -113,6 +114,14 @@ Default behavior is automatic via system preference. Manual override is also sup
 document.documentElement.dataset.theme = 'dark';  // or 'light'
 // `.dark` / `.light` classes also work
 ```
+
+## Analytics Guidance
+
+- Make hierarchy loud and decoration quiet. Grouping, proportion, spacing, and line weight should orient the reader before color does.
+- Keep app shells wide and figures disciplined. Workspace headers can hold tabs, KPIs, and filters; the actual evidence should still read like charts, tables, and annotated figures, not rounded widgets.
+- Use semantic chart tokens everywhere. Read `--gp-chart-positive`, `--gp-chart-negative`, `--gp-chart-accent-1`, `--gp-chart-axis`, `--gp-chart-grid`, and `--gp-chart-surface` from CSS and reuse them across D3, Recharts, ECharts, or SVG.
+- In dense treemaps, let category blocks carry the hierarchy and keep micro-cells quiet. Strong borders on every tiny tile create shimmer.
+- In tables, keep the number visible and let the visual encoding support it. `gp-meter` is for compact quantitative cells, not for hiding the value.
 
 ## License
 
