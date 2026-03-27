@@ -99,7 +99,7 @@ module.exports = {
 | Parallel coords | `.parallel-coords` | Multi-variable SVG |
 | Slippy map | `.gp-map-block`, `.gp-map-frame`, `.gp-map-panel` | Narrative map embed with overlay panel and key |
 | Strategy brief | `.brief-backlink`, `.brief-header`, `.metric-strip`, `.tab-nav--filled`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
-| App UI | `.gp-app-shell`, `.gp-workspace`, `.gp-workspace__tabs`, `.gp-workspace__header`, `.gp-workspace__toolbar`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-meter`, `.gp-record-list`, `.gp-chart-frame`, `.gp-spread`, `.gp-treemap` | Tufte-compatible operational UI layer for analytics apps, research lists, chart wrappers, editorial spreads, wide workspace shells, treemaps, and quantitative table cells |
+| App UI | `.gp-app-shell`, `.gp-app-main--detail`, `.gp-app-main--detail-wide`, `.gp-workspace`, `.gp-workspace__tabs`, `.gp-workspace__header`, `.gp-workspace__toolbar`, `.gp-toolbar`, `.gp-btn`, `.gp-input`, `.gp-panel`, `.gp-kpi-grid`, `.gp-data-table`, `.gp-card-grid`, `.gp-progress`, `.gp-meter`, `.gp-rank-list`, `.gp-rank-card`, `.gp-record-list`, `.gp-chart-frame`, `.gp-spread`, `.gp-treemap`, `.gp-treemap__tooltip` | Tufte-compatible operational UI layer for analytics apps, research lists, ranked bar views, chart wrappers, editorial spreads, wide workspace shells, treemaps, tooltips, and quantitative table cells |
 | Bar chart | `.bar-chart` | Minimal tick or filled bars |
 | Pull stat | `.pull-stat` | Large featured numbers |
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |
