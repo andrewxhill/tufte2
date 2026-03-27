@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graphics Press CSS — Documentation &amp; Demo</title>
-<link rel="stylesheet" href="css/graphics-press.css">
+<link rel="stylesheet" href="../css/graphics-press.css">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.css">
 <style>
 /* ── Demo chrome only — not part of the library ── */
@@ -99,7 +99,7 @@
 
 <h3>CDN (quickstart)</h3>
 <p>Drop a single <code>&lt;link&gt;</code> tag into your HTML:</p>
-<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.2.1/css/graphics-press.css"&gt;</code></pre>
+<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.3.0/css/graphics-press.css"&gt;</code></pre>
 
 <h3>npm (raw CSS)</h3>
 <pre><code>npm install @andrewxhill/graphics-press-css</code></pre>
@@ -126,7 +126,7 @@
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.2.1/css/graphics-press.css"&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.3.0/css/graphics-press.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;article&gt;
@@ -1593,6 +1593,119 @@ map.on('load', () =&gt; {
 &lt;div class="algorithm-panel"&gt;&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</code></pre>
 
 <hr class="section-rule">
+<h2>Analytics App UI</h2>
+<p class="principle">
+  Some client work needs more than prose blocks: filters, search, state messaging,
+  KPI tiles, and dense tables. The app layer keeps those pieces readable without
+  dropping into generic SaaS styling.
+</p>
+
+<div class="gp-app-frame">
+  <div class="gp-toolbar">
+    <div class="gp-toolbar__group gp-segmented">
+      <button class="is-active">Wallets</button>
+      <button>Markets</button>
+      <button>Raw Data</button>
+    </div>
+    <div class="gp-toolbar__group">
+      <input class="gp-input" type="search" placeholder="Search wallet or market">
+    </div>
+    <div class="gp-toolbar__meta">
+      <span>Universe <strong class="datum" style="color:var(--gp-ink)">500</strong></span>
+      <span>Updated <strong class="datum" style="color:var(--gp-ink)">5m ago</strong></span>
+    </div>
+  </div>
+
+  <div class="gp-kpi-grid">
+    <div class="gp-kpi">
+      <span class="gp-kpi__label">Total PnL</span>
+      <span class="gp-kpi__value green">$14.2M</span>
+      <span class="gp-kpi__sub">USDC-verified aggregate</span>
+    </div>
+    <div class="gp-kpi">
+      <span class="gp-kpi__label">Maker Share</span>
+      <span class="gp-kpi__value">68.4%</span>
+      <span class="gp-kpi__sub">Fill-count basis</span>
+    </div>
+    <div class="gp-kpi">
+      <span class="gp-kpi__label">Open Markets</span>
+      <span class="gp-kpi__value">93</span>
+      <span class="gp-kpi__sub">With active inventory</span>
+    </div>
+  </div>
+
+  <div class="gp-card-grid" style="margin-bottom:1rem">
+    <article class="gp-card">
+      <span class="gp-card__eyebrow">State block</span>
+      <h3 class="gp-card__title">Readable by default</h3>
+      <p class="gp-card__meta">Metadata, controls, and headers sit closer to 12.5 to 14px equivalents. That is the floor, not the exception.</p>
+    </article>
+    <article class="gp-card">
+      <span class="gp-card__eyebrow">Progress</span>
+      <h3 class="gp-card__title">Scanner pass: 61%</h3>
+      <div class="gp-progress" style="margin-top:0.7rem;--gp-progress:61%">
+        <div class="gp-progress__bar" style="background:var(--gp-blue)"></div>
+      </div>
+      <p class="gp-card__meta">Use for scans, ingestion status, or background jobs.</p>
+    </article>
+  </div>
+
+  <section class="gp-panel">
+    <div class="gp-panel__header">
+      <h3 class="gp-panel__title">Representative Positions</h3>
+      <div class="gp-panel__meta">Dense tables should still read without zooming</div>
+    </div>
+    <div class="gp-data-table__wrap">
+      <table class="gp-data-table">
+        <thead>
+          <tr>
+            <th>Wallet</th>
+            <th>Status</th>
+            <th style="text-align:right">PnL</th>
+            <th style="text-align:right">Maker %</th>
+            <th style="text-align:right">Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0x6031...f96d</td>
+            <td><span class="gp-badge gp-badge--live">Live</span></td>
+            <td style="text-align:right"><span class="datum" style="color:var(--gp-green)">$71.6M</span></td>
+            <td style="text-align:right">91%</td>
+            <td style="text-align:right">$44.8M</td>
+          </tr>
+          <tr>
+            <td>0xa45f...39b1</td>
+            <td><span class="gp-badge gp-badge--venue-blue">Kalshi</span></td>
+            <td style="text-align:right"><span class="datum" style="color:var(--gp-blue)">$11.8M</span></td>
+            <td style="text-align:right">87%</td>
+            <td style="text-align:right">$21.3M</td>
+          </tr>
+          <tr>
+            <td>0x6916...0e11</td>
+            <td><span class="gp-badge gp-badge--venue-ochre">Derived</span></td>
+            <td style="text-align:right"><span class="datum" style="color:var(--gp-red)">$7.3M</span></td>
+            <td style="text-align:right">74%</td>
+            <td style="text-align:right">$9.5M</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<button class="code-toggle">Show code</button>
+<pre style="display:none"><code>&lt;div class="gp-toolbar"&gt;...&lt;/div&gt;
+&lt;div class="gp-kpi-grid"&gt;...&lt;/div&gt;
+&lt;div class="gp-card-grid"&gt;...&lt;/div&gt;
+&lt;section class="gp-panel"&gt;
+  &lt;div class="gp-panel__header"&gt;...&lt;/div&gt;
+  &lt;div class="gp-data-table__wrap"&gt;
+    &lt;table class="gp-data-table"&gt;...&lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+<hr class="section-rule">
 <h2>CSS Custom Properties Reference</h2>
 <p>All design tokens are CSS custom properties. Override any at <code>:root</code> to retheme
   without forking the library.</p>
@@ -1690,7 +1803,7 @@ map.on('load', () =&gt; {
 <!-- ═══ FOOTER ═══ -->
 <hr class="section-rule">
 <p class="small muted" style="margin-top:var(--gp-space-lg)">
-  <strong>Graphics Press CSS</strong> v4.2.1 &ensp;&middot;&ensp;
+  <strong>Graphics Press CSS</strong> v4.3.0 &ensp;&middot;&ensp;
   MIT License &ensp;&middot;&ensp;
   ET Book typeface: Edward Tufte, Dmitry Krasny, Bonnie Scranton &ensp;&middot;&ensp;
   Color: Eduard Imhof, <em>Cartographic Relief Presentation</em>
