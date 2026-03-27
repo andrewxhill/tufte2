@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graphics Press CSS — Documentation &amp; Demo</title>
-<link rel="stylesheet" href="../css/graphics-press.css">
+<link rel="stylesheet" href="css/graphics-press.css">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.css">
 <style>
 /* ── Demo chrome only — not part of the library ── */
@@ -79,7 +79,7 @@
 <article>
 
 <div class="running-header">
-  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.5</span>
+  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.7.2</span>
   <span>Documentation &amp; Demo</span>
 </div>
 
@@ -99,7 +99,7 @@
 
 <h3>CDN (quickstart)</h3>
 <p>Drop a single <code>&lt;link&gt;</code> tag into your HTML:</p>
-<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css"&gt;</code></pre>
+<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.2/css/graphics-press.css"&gt;</code></pre>
 
 <h3>npm (raw CSS)</h3>
 <pre><code>npm install @andrewxhill/graphics-press-css</code></pre>
@@ -126,7 +126,7 @@
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css"&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.2/css/graphics-press.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;article&gt;
@@ -1862,7 +1862,7 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
 </div>
 
 <h3>Treemap Framing</h3>
-<p>Treemaps in research apps usually need more than bare rectangles. Use a quiet header, explicit legend, and breadcrumb row so category blocks, venue color, and zoom state stay legible.</p>
+<p>Treemaps in research apps usually need more than bare rectangles. Make the hierarchy loud and the decoration quiet: strong category frames, explicit legend and crumbs, muted micro-cells, and only enough venue color to separate meaning without shimmer.</p>
 
 <div class="gp-treemap__legend" style="margin-bottom:0.65rem">
   <div class="gp-treemap__legend-group">
@@ -1872,7 +1872,7 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
       <span class="gp-legend__item"><span class="gp-legend__swatch" style="background:var(--gp-green)"></span>Limitless</span>
     </div>
   </div>
-  <span class="gp-treemap__legend-note">Category blocks hold the hierarchy; venue tint differentiates the market tiles within them.</span>
+  <span class="gp-treemap__legend-note">Let category blocks carry the hierarchy. Dense leaf fields should stay quiet; venue tint only needs to separate meaning, not light up every border.</span>
 </div>
 
 <div class="gp-treemap__crumbs">
@@ -1885,33 +1885,33 @@ const grid = styles.getPropertyValue('--gp-chart-grid').trim();</code></pre>
 <div class="gp-treemap">
   <div class="gp-treemap__header">
     <h4 class="gp-treemap__title">Politics — 482 markets</h4>
-    <span class="gp-treemap__meta">Treemap with category blocks and venue-tinted leaves</span>
+    <span class="gp-treemap__meta">Category frames first, venue tint second, dense leaves kept quiet</span>
   </div>
   <div class="gp-treemap__body">
     <svg viewBox="0 0 900 360" aria-label="illustrative treemap">
-      <rect x="10" y="10" width="430" height="160" fill="color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper))" stroke="var(--gp-blue)" stroke-opacity="0.35"></rect>
-      <rect x="18" y="38" width="130" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="152" y="38" width="132" height="122" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="288" y="38" width="144" height="122" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="10" y="10" width="430" height="160" fill="color-mix(in oklab, var(--gp-blue) 8%, var(--gp-paper))" stroke="var(--gp-blue)" stroke-opacity="0.5"></rect>
+      <rect x="18" y="38" width="130" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 16%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-accent-1) 45%, var(--gp-paper))" stroke-opacity="0.42"></rect>
+      <rect x="152" y="38" width="132" height="122" fill="color-mix(in oklab, var(--gp-blue) 12%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-grid) 55%, var(--gp-paper))" stroke-opacity="0.38"></rect>
+      <rect x="288" y="38" width="144" height="122" fill="color-mix(in oklab, var(--gp-green) 15%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-green) 45%, var(--gp-paper))" stroke-opacity="0.4"></rect>
       <text x="18" y="28" class="gp-chart-label">US Elections 188</text>
       <text x="26" y="58" class="gp-chart-axis-label">Electoral College</text>
       <text x="160" y="58" class="gp-chart-axis-label">Nominee odds</text>
       <text x="296" y="58" class="gp-chart-axis-label">Senate control</text>
 
-      <rect x="450" y="10" width="440" height="160" fill="color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper))" stroke="var(--gp-chart-accent-2)" stroke-opacity="0.35"></rect>
-      <rect x="458" y="38" width="178" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="640" y="38" width="118" height="122" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="762" y="38" width="120" height="122" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="450" y="10" width="440" height="160" fill="color-mix(in oklab, var(--gp-chart-accent-2) 8%, var(--gp-paper))" stroke="var(--gp-chart-accent-2)" stroke-opacity="0.5"></rect>
+      <rect x="458" y="38" width="178" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-1) 16%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-accent-1) 45%, var(--gp-paper))" stroke-opacity="0.42"></rect>
+      <rect x="640" y="38" width="118" height="122" fill="color-mix(in oklab, var(--gp-chart-accent-2) 13%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-grid) 55%, var(--gp-paper))" stroke-opacity="0.38"></rect>
+      <rect x="762" y="38" width="120" height="122" fill="color-mix(in oklab, var(--gp-green) 15%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-green) 45%, var(--gp-paper))" stroke-opacity="0.4"></rect>
       <text x="458" y="28" class="gp-chart-label">Geopolitics 174</text>
       <text x="466" y="58" class="gp-chart-axis-label">Ukraine ceasefire</text>
       <text x="648" y="58" class="gp-chart-axis-label">Taiwan</text>
       <text x="770" y="58" class="gp-chart-axis-label">Iran</text>
 
-      <rect x="10" y="180" width="880" height="170" fill="color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper))" stroke="var(--gp-ochre)" stroke-opacity="0.35"></rect>
-      <rect x="18" y="208" width="250" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 14%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="272" y="208" width="206" height="132" fill="color-mix(in oklab, var(--gp-blue) 16%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="482" y="208" width="196" height="132" fill="color-mix(in oklab, var(--gp-green) 13%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
-      <rect x="682" y="208" width="200" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 11%, color-mix(in oklab, var(--gp-ochre) 10%, var(--gp-paper)))" stroke="var(--gp-paper)"></rect>
+      <rect x="10" y="180" width="880" height="170" fill="color-mix(in oklab, var(--gp-ochre) 8%, var(--gp-paper))" stroke="var(--gp-ochre)" stroke-opacity="0.5"></rect>
+      <rect x="18" y="208" width="250" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 16%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-accent-1) 45%, var(--gp-paper))" stroke-opacity="0.42"></rect>
+      <rect x="272" y="208" width="206" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-2) 12%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-grid) 55%, var(--gp-paper))" stroke-opacity="0.38"></rect>
+      <rect x="482" y="208" width="196" height="132" fill="color-mix(in oklab, var(--gp-green) 15%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-green) 45%, var(--gp-paper))" stroke-opacity="0.4"></rect>
+      <rect x="682" y="208" width="200" height="132" fill="color-mix(in oklab, var(--gp-chart-accent-1) 12%, var(--gp-paper))" stroke="color-mix(in oklab, var(--gp-chart-grid) 55%, var(--gp-paper))" stroke-opacity="0.38"></rect>
       <text x="18" y="198" class="gp-chart-label">Trade Policy 120</text>
       <text x="26" y="228" class="gp-chart-axis-label">Tariffs</text>
       <text x="280" y="228" class="gp-chart-axis-label">Sanctions</text>
