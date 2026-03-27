@@ -9,6 +9,8 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 - **ET Book typeface** -- Tufte's open-source Bembo digitisation
 - **Sidenotes & margin notes** -- CSS-only, no JavaScript required
 - **Data visualization components** -- dot charts, dumbbell charts, sparklines, bullet graphs, heat tables, slopegraphs, parallel coordinates, and more
+- **Narrative map framing** -- reusable slippy-map container, inset legend panel, and map annotation chrome for MapLibre/Leaflet examples
+- **Analytical briefing blocks** -- strategy headers, metric strips, tab rows, analytic cards, timelines, and algorithm panels for research apps
 - **Dark mode** -- automatic via `prefers-color-scheme`, manual via `.dark` class
 - **Responsive** -- fluid typography, mobile sidenote toggles, adaptive chart layouts
 - **Print styles** -- optimized for paper output
@@ -20,7 +22,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.0.0/css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css">
 ```
 
 ### npm
@@ -56,7 +58,7 @@ module.exports = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.0.0/css/graphics-press.css">
+  <link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css">
 </head>
 <body>
   <article>
@@ -93,6 +95,8 @@ module.exports = {
 | Timeline | `.timeline` | Events and periods |
 | Slopegraph | `.slopegraph-wrap` | Two-point comparison |
 | Parallel coords | `.parallel-coords` | Multi-variable SVG |
+| Slippy map | `.gp-map-block`, `.gp-map-frame`, `.gp-map-panel` | Narrative map embed with overlay panel and key |
+| Strategy brief | `.brief-header`, `.metric-strip`, `.analytic-grid`, `.activity-timeline` | Analytical dashboard framing for research and trading apps |
 | Bar chart | `.bar-chart` | Minimal tick or filled bars |
 | Pull stat | `.pull-stat` | Large featured numbers |
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |

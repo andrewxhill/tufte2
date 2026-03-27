@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graphics Press CSS — Documentation &amp; Demo</title>
 <link rel="stylesheet" href="../css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.css">
 <style>
 /* ── Demo chrome only — not part of the library ── */
 .theme-toggle {
@@ -78,7 +79,7 @@
 <article>
 
 <div class="running-header">
-  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.0</span>
+  <span>Graphics Press <abbr>CSS</abbr> &ensp; v4.1</span>
   <span>Documentation &amp; Demo</span>
 </div>
 
@@ -98,7 +99,7 @@
 
 <h3>CDN (quickstart)</h3>
 <p>Drop a single <code>&lt;link&gt;</code> tag into your HTML:</p>
-<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.0.0/css/graphics-press.css"&gt;</code></pre>
+<pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css"&gt;</code></pre>
 
 <h3>npm (raw CSS)</h3>
 <pre><code>npm install graphics-press-css</code></pre>
@@ -125,7 +126,7 @@
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.0.0/css/graphics-press.css"&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/graphics-press-css@4.1.0/css/graphics-press.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;article&gt;
@@ -1414,6 +1415,182 @@ document.getElementById('themeToggle')
 
 <!-- ═══ CSS CUSTOM PROPERTIES REFERENCE ═══ -->
 <hr class="section-rule">
+<h2>Slippy Map</h2>
+<p class="principle">
+  Good basemaps should recede; the argument should sit on top. A hosted vector style
+  plus a few direct analytical marks is the cleanest public example for this library.
+</p>
+
+<p>This example uses MapLibre GL JS on GitHub Pages with OpenFreeMap&rsquo;s Liberty style.
+  The base map is familiar and free, attribution is handled automatically by MapLibre,
+  and the overlay remains plain GeoJSON you can inspect and replace.</p>
+
+<figure class="figure-full gp-map-block">
+  <div class="gp-map-frame">
+    <div id="slippyMap" class="gp-map" aria-label="Interactive map showing a synthetic North American passenger corridor dataset"></div>
+    <div class="gp-map-panel">
+      <span class="gp-map-kicker">North America air corridor sample</span>
+      <h3 class="gp-map-title">Six metro areas, one corridor, and a restrained analytical overlay</h3>
+      <p>Circle area encodes illustrative annual passengers. The ochre line isolates the Boston-Washington corridor so the basemap stays contextual instead of argumentative.</p>
+      <ul class="gp-map-key">
+        <li><span class="gp-map-swatch red"></span> Northeast megaregion</li>
+        <li><span class="gp-map-swatch blue"></span> Interior hubs</li>
+        <li><span class="gp-map-swatch ochre"></span> Highlighted corridor</li>
+      </ul>
+      <div class="gp-map-meta">
+        <div class="gp-map-stat">Basemap <strong>Liberty</strong></div>
+        <div class="gp-map-stat">Overlay <strong>GeoJSON</strong></div>
+        <div class="gp-map-stat">Host model <strong>No key</strong></div>
+      </div>
+    </div>
+  </div>
+  <figcaption>Recommended public example stack: MapLibre GL JS plus OpenFreeMap&rsquo;s hosted Liberty style. This avoids leaning on the community-operated raw OSM raster tile servers while still keeping the demo free and inspectable.</figcaption>
+</figure>
+
+<p class="source-line">Basemap: OpenFreeMap Liberty, derived from OpenStreetMap/OpenMapTiles. Overlay data is illustrative only and intended to demonstrate symbol hierarchy, labeling, and annotation.</p>
+
+<details class="data-note">
+  <summary>Why this stack</summary>
+  <p>OpenFreeMap publishes a no-key hosted style URL for MapLibre, including labels and attribution. That makes it a better docs default than pointing a public demo at <code>tile.openstreetmap.org</code>, whose usage policy explicitly says the standard tile service is limited and should be avoided if you cannot meet its requirements or need another OSM-derived service.</p>
+</details>
+
+<button class="code-toggle">Show code</button>
+<pre style="display:none"><code>&lt;link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.css"&gt;
+&lt;script src="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.js"&gt;&lt;/script&gt;
+
+&lt;div class="gp-map-frame"&gt;
+  &lt;div id="slippyMap" class="gp-map"&gt;&lt;/div&gt;
+  &lt;div class="gp-map-panel"&gt;...legend and narrative...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const map = new maplibregl.Map({
+  container: 'slippyMap',
+  style: 'https://tiles.openfreemap.org/styles/liberty',
+  center: [-77.2, 39.3],
+  zoom: 3.55
+});
+
+map.on('load', () =&gt; {
+  map.addSource('metros', { type: 'geojson', data: myGeoJson });
+  map.addLayer({ id: 'metro-circles', type: 'circle', source: 'metros' });
+});
+&lt;/script&gt;</code></pre>
+
+<hr class="section-rule">
+<h2>Strategy Brief</h2>
+<p class="principle">
+  Review note from a live client: the typography is already doing good work, but the
+  KPI row, tab strip, analytic cards, and timeline bars want their own system instead
+  of bespoke app CSS.
+</p>
+
+<div class="brief-header">
+  <div>
+    <p class="brief-header__meta">Multi-wallet merge arbitrage · 4 trading wallets · 2025-07-31 to 2026-03-24</p>
+    <h3 class="brief-header__title">Merge Machine Alpha</h3>
+    <p class="brief-header__dek">A compact briefing shell for strategy dashboards: terse provenance up top, one dominant number, then a disciplined sequence of metrics, cards, and timelines beneath.</p>
+  </div>
+  <div class="brief-header__stat">
+    <span class="brief-header__label">Combined volume</span>
+    <span class="brief-header__value">$93.52M</span>
+    <span class="brief-header__subvalue">17,358,089 fills</span>
+  </div>
+</div>
+
+<div class="metric-strip">
+  <div class="metric-strip__item"><span class="metric-strip__label">Wallets</span><span class="metric-strip__value">4</span></div>
+  <div class="metric-strip__item"><span class="metric-strip__label">Live days</span><span class="metric-strip__value">235</span></div>
+  <div class="metric-strip__item"><span class="metric-strip__label">Markets / day</span><span class="metric-strip__value">480</span></div>
+  <div class="metric-strip__item"><span class="metric-strip__label">Mean PnL / hr</span><span class="metric-strip__value green">$18.07</span></div>
+  <div class="metric-strip__item"><span class="metric-strip__label">Spread / trade</span><span class="metric-strip__value blue">0.88¢</span></div>
+</div>
+
+<ul class="tab-nav" aria-label="Strategy sections">
+  <li><a href="#0" class="is-active">Strategy overview</a></li>
+  <li><a href="#0">How it works</a></li>
+  <li><a href="#0">Execution DNA</a></li>
+  <li><a href="#0">On-chain events</a></li>
+</ul>
+
+<div class="analytic-grid">
+  <article class="analytic-card green">
+    <span class="analytic-card__eyebrow">Primary wallet</span>
+    <h3 class="analytic-card__title">Main (0x6031...f96d)</h3>
+    <span class="analytic-card__value">$71.58M</span>
+    <span class="analytic-card__meta">107 days live · 853k maker fills</span>
+  </article>
+  <article class="analytic-card blue">
+    <span class="analytic-card__eyebrow">Sibling A</span>
+    <h3 class="analytic-card__title">sb_a (0xa45f...)</h3>
+    <span class="analytic-card__value">$11.79M</span>
+    <span class="analytic-card__meta">81 days live · 846k maker fills</span>
+  </article>
+  <article class="analytic-card ochre">
+    <span class="analytic-card__eyebrow">Sibling B</span>
+    <h3 class="analytic-card__title">sb_b (0xddda...)</h3>
+    <span class="analytic-card__value">$3.33M</span>
+    <span class="analytic-card__meta">55 days live · 435k maker fills</span>
+  </article>
+  <article class="analytic-card red">
+    <span class="analytic-card__eyebrow">Sibling C</span>
+    <h3 class="analytic-card__title">sb_c (0x5b49...)</h3>
+    <span class="analytic-card__value">$6.81M</span>
+    <span class="analytic-card__meta">206 days live · 922k maker fills</span>
+  </article>
+</div>
+
+<div class="activity-timeline">
+  <div class="activity-timeline__header">
+    <span>Wallet rotation timeline</span>
+    <span>Sequence matters more than exact timestamps</span>
+  </div>
+  <div class="activity-timeline__lane">
+    <span class="activity-timeline__label">main</span>
+    <div class="activity-timeline__track"><span class="activity-timeline__span green" style="--at-start:18%;--at-width:60%"></span></div>
+    <span class="activity-timeline__value">107d</span>
+  </div>
+  <div class="activity-timeline__lane">
+    <span class="activity-timeline__label">sb_a</span>
+    <div class="activity-timeline__track"><span class="activity-timeline__span blue" style="--at-start:80%;--at-width:14%"></span></div>
+    <span class="activity-timeline__value">81d</span>
+  </div>
+  <div class="activity-timeline__lane">
+    <span class="activity-timeline__label">sb_b</span>
+    <div class="activity-timeline__track"><span class="activity-timeline__span ochre" style="--at-start:83%;--at-width:10%"></span></div>
+    <span class="activity-timeline__value">55d</span>
+  </div>
+  <div class="activity-timeline__lane">
+    <span class="activity-timeline__label">sb_c</span>
+    <div class="activity-timeline__track"><span class="activity-timeline__span red" style="--at-start:0%;--at-width:100%"></span></div>
+    <span class="activity-timeline__value">206d</span>
+  </div>
+</div>
+
+<div class="algorithm-panel">
+  <p class="algorithm-panel__title">Algorithm sketch</p>
+  <pre><code>every hour:
+  scan active prediction markets
+  filter to paired YES/NO liquidity
+  select the 20 newest markets
+  post makers on both sides
+  fill for 12 minutes
+  roll to next market pair</code></pre>
+</div>
+
+<p class="source-line">Illustrative strategy-brief numbers modeled after a live Recall Network client layout. Values here are synthetic and intended to demonstrate typographic structure rather than document a real trading strategy.</p>
+
+<button class="code-toggle">Show code</button>
+<pre style="display:none"><code>&lt;div class="brief-header"&gt;...&lt;/div&gt;
+&lt;div class="metric-strip"&gt;...&lt;/div&gt;
+&lt;ul class="tab-nav"&gt;...&lt;/ul&gt;
+&lt;div class="analytic-grid"&gt;
+  &lt;article class="analytic-card green"&gt;...&lt;/article&gt;
+&lt;/div&gt;
+&lt;div class="activity-timeline"&gt;...&lt;/div&gt;
+&lt;div class="algorithm-panel"&gt;&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</code></pre>
+
+<hr class="section-rule">
 <h2>CSS Custom Properties Reference</h2>
 <p>All design tokens are CSS custom properties. Override any at <code>:root</code> to retheme
   without forking the library.</p>
@@ -1511,7 +1688,7 @@ document.getElementById('themeToggle')
 <!-- ═══ FOOTER ═══ -->
 <hr class="section-rule">
 <p class="small muted" style="margin-top:var(--gp-space-lg)">
-  <strong>Graphics Press CSS</strong> v4.0.0 &ensp;&middot;&ensp;
+  <strong>Graphics Press CSS</strong> v4.1.0 &ensp;&middot;&ensp;
   MIT License &ensp;&middot;&ensp;
   ET Book typeface: Edward Tufte, Dmitry Krasny, Bonnie Scranton &ensp;&middot;&ensp;
   Color: Eduard Imhof, <em>Cartographic Relief Presentation</em>
@@ -1519,6 +1696,7 @@ document.getElementById('themeToggle')
 
 </article>
 
+<script src="https://unpkg.com/maplibre-gl@5.21.1/dist/maplibre-gl.js"></script>
 <script>
 /* Theme toggle */
 const html = document.documentElement;
@@ -1601,6 +1779,135 @@ document.querySelectorAll('.code-toggle').forEach(btn => {
     btn.textContent = isVisible ? 'Show code' : 'Hide code';
   });
 });
+
+/* Slippy map example */
+(function() {
+  if (!window.maplibregl) return;
+  const mapNode = document.getElementById('slippyMap');
+  if (!mapNode) return;
+
+  const metroFeatures = {
+    type: 'FeatureCollection',
+    features: [
+      { type: 'Feature', properties: { city: 'Boston', region: 'Northeast', passengers: 38, note: 'Knowledge and biotech cluster' }, geometry: { type: 'Point', coordinates: [-71.0589, 42.3601] } },
+      { type: 'Feature', properties: { city: 'New York', region: 'Northeast', passengers: 61, note: 'Largest interchange in the sample' }, geometry: { type: 'Point', coordinates: [-74.0060, 40.7128] } },
+      { type: 'Feature', properties: { city: 'Philadelphia', region: 'Northeast', passengers: 29, note: 'Mid-corridor transfer market' }, geometry: { type: 'Point', coordinates: [-75.1652, 39.9526] } },
+      { type: 'Feature', properties: { city: 'Washington', region: 'Northeast', passengers: 34, note: 'Federal and consulting demand' }, geometry: { type: 'Point', coordinates: [-77.0369, 38.9072] } },
+      { type: 'Feature', properties: { city: 'Chicago', region: 'Interior', passengers: 49, note: 'Interior hub and network bridge' }, geometry: { type: 'Point', coordinates: [-87.6298, 41.8781] } },
+      { type: 'Feature', properties: { city: 'Atlanta', region: 'Interior', passengers: 45, note: 'Southeast distribution hub' }, geometry: { type: 'Point', coordinates: [-84.3880, 33.7490] } }
+    ]
+  };
+
+  const corridor = {
+    type: 'FeatureCollection',
+    features: [
+      {
+        type: 'Feature',
+        properties: { name: 'BosWash corridor' },
+        geometry: {
+          type: 'LineString',
+          coordinates: [
+            [-71.0589, 42.3601],
+            [-74.0060, 40.7128],
+            [-75.1652, 39.9526],
+            [-77.0369, 38.9072]
+          ]
+        }
+      }
+    ]
+  };
+
+  const map = new maplibregl.Map({
+    container: 'slippyMap',
+    style: 'https://tiles.openfreemap.org/styles/liberty',
+    center: [-77.2, 39.3],
+    zoom: 3.55,
+    attributionControl: { compact: true }
+  });
+
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+  map.on('load', () => {
+    map.addSource('corridor', { type: 'geojson', data: corridor });
+    map.addSource('metros', { type: 'geojson', data: metroFeatures });
+
+    map.addLayer({
+      id: 'corridor-line',
+      type: 'line',
+      source: 'corridor',
+      paint: {
+        'line-color': '#8b6914',
+        'line-width': 4,
+        'line-opacity': 0.9
+      }
+    });
+
+    map.addLayer({
+      id: 'metro-circles',
+      type: 'circle',
+      source: 'metros',
+      paint: {
+        'circle-radius': [
+          'interpolate', ['linear'], ['get', 'passengers'],
+          25, 7,
+          65, 18
+        ],
+        'circle-color': [
+          'match', ['get', 'region'],
+          'Northeast', '#b5322a',
+          '#3a5a8c'
+        ],
+        'circle-opacity': 0.8,
+        'circle-stroke-color': '#fffdf7',
+        'circle-stroke-width': 1.4
+      }
+    });
+
+    map.addLayer({
+      id: 'metro-labels',
+      type: 'symbol',
+      source: 'metros',
+      layout: {
+        'text-field': ['get', 'city'],
+        'text-size': 11,
+        'text-font': ['Noto Sans Regular'],
+        'text-offset': [0, 1.45],
+        'text-anchor': 'top'
+      },
+      paint: {
+        'text-color': '#2b2622',
+        'text-halo-color': '#fffdf7',
+        'text-halo-width': 1.1
+      }
+    });
+
+    const popup = new maplibregl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+      offset: 14
+    });
+
+    map.on('mouseenter', 'metro-circles', () => {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'metro-circles', () => {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+
+    map.on('mousemove', 'metro-circles', (event) => {
+      const feature = event.features && event.features[0];
+      if (!feature) return;
+      const coords = feature.geometry.coordinates.slice();
+      const props = feature.properties;
+      popup
+        .setLngLat(coords)
+        .setHTML('<strong>' + props.city + '</strong><br>' + props.passengers + 'M annual passengers<br>' + props.note)
+        .addTo(map);
+    });
+  });
+})();
 </script>
 </body>
 </html>
