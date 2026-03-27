@@ -1722,6 +1722,54 @@ map.on('load', () =&gt; {
 
 <p class="gp-note" style="margin-top:0.8rem">Use <code>.gp-meter</code> for quantitative table cells like maker share, completion rate, balance ratio, or other compact progress-style values.</p>
 
+<h3>Workspace Shell</h3>
+<p>Top-level analytics routes usually want a wider frame and a different header balance than dossier/detail pages. Keep that behavior in the library instead of app-local layout CSS.</p>
+
+<div class="gp-app-frame gp-workspace">
+  <ul class="tab-nav tab-nav--filled gp-workspace__tabs">
+    <li><button class="is-active">Markets</button></li>
+    <li><button>Wallets</button></li>
+    <li><button>Smart Money</button></li>
+    <li><button>Demo</button></li>
+    <li><button>Cows</button></li>
+  </ul>
+  <div class="brief-header gp-workspace__header" style="margin-top:0">
+    <div>
+      <div class="brief-header__meta">Analytics workspace</div>
+      <h3 class="brief-header__title" style="font-style:italic">Prediction Markets Explorer <span style="color:var(--gp-ghost-ink);font-family:var(--gp-sans);font-size:0.95rem;font-style:normal">[Beta]</span></h3>
+    </div>
+    <div class="brief-header__stat">
+      <span class="brief-header__label">Market universe</span>
+      <span class="brief-header__value" style="color:var(--gp-ink)">8,214</span>
+      <span class="brief-header__subvalue">27 categories</span>
+    </div>
+  </div>
+  <div class="gp-toolbar gp-workspace__toolbar">
+    <div class="gp-toolbar__group gp-segmented">
+      <button class="is-active">All</button>
+      <button>Kalshi</button>
+      <button>Polymarket</button>
+    </div>
+    <div class="gp-toolbar__group gp-segmented">
+      <button class="is-active">Tree</button>
+      <button>Bar</button>
+      <button>Bar %</button>
+      <button>Raw Data</button>
+    </div>
+    <div class="gp-toolbar__meta">
+      <span>Markets <strong class="datum" style="color:var(--gp-ink)">8,214</strong></span>
+      <span>Categories <strong class="datum" style="color:var(--gp-ink)">27</strong></span>
+    </div>
+  </div>
+</div>
+
+<button class="code-toggle">Show code</button>
+<pre style="display:none"><code>&lt;div class="gp-app-frame gp-workspace"&gt;
+  &lt;ul class="tab-nav tab-nav--filled gp-workspace__tabs"&gt;...&lt;/ul&gt;
+  &lt;div class="brief-header gp-workspace__header"&gt;...&lt;/div&gt;
+  &lt;div class="gp-toolbar gp-workspace__toolbar"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
 <h3>Chart Interop</h3>
 <p>Use semantic chart variables instead of app-local hex palettes. The same tokens can drive D3, Recharts,
   ECharts, or plain SVG without diverging from the typographic system.</p>
