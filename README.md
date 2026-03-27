@@ -13,7 +13,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 - **Analytical briefing blocks** -- strategy headers, metric strips, tab rows, analytic cards, app-shell primitives, reusable research rows, and editorial spread layouts for research apps
 - **Chart interop tokens** -- semantic chart colors and axis/grid variables for D3, Recharts, ECharts, and hand-rolled SVG
 - **Editorial spread layouts** -- dual-column analysis blocks with deliberate chart/timeline breakout rows
-- **Dark mode** -- automatic via `prefers-color-scheme`, manual via `.dark` class
+- **Theme-aware by default** -- follows `prefers-color-scheme`; manual override via `.dark`, `.light`, or `[data-theme]`
 - **Responsive** -- fluid typography, mobile sidenote toggles, adaptive chart layouts
 - **Print styles** -- optimized for paper output
 - **CSS layers** -- `@layer` for specificity-safe cascade; override without `!important`
@@ -24,7 +24,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.0/css/graphics-press.css">
 ```
 
 ### npm
@@ -56,11 +56,11 @@ module.exports = {
 
 ```html
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.5.0/css/graphics-press.css">
+  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.0/css/graphics-press.css">
 </head>
 <body>
   <article>
@@ -105,14 +105,13 @@ module.exports = {
 | Stat grid | `.stat-grid` | Multiple metrics under one rule |
 | Evidence | `.evidence` | Image + analysis layout |
 
-## Dark Mode
+## Themes
 
-Automatic via system preference, or manual:
+Default behavior is automatic via system preference. Manual override is also supported:
 
 ```js
-// Toggle
-document.documentElement.classList.toggle('dark');
-document.documentElement.classList.toggle('light');
+document.documentElement.dataset.theme = 'dark';  // or 'light'
+// `.dark` / `.light` classes also work
 ```
 
 ## License
