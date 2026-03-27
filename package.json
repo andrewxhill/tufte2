@@ -23,7 +23,8 @@
   "author": "Graphics Press CSS Contributors",
   "scripts": {
     "changeset": "changeset",
-    "version-packages": "changeset version"
+    "version-packages": "changeset version",
+    "publish-if-needed": "node .github/scripts/publish-if-needed.mjs"
   },
   "publishConfig": {
     "access": "public",
