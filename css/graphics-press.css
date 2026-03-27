@@ -939,6 +939,7 @@
     background: oklch(from var(--gp-paper) calc(l - 0.05) c h);
   }
   .gp-meter__fill {
+    display: block;
     width: var(--gp-meter-value, 0%);
     height: 100%;
     background: var(--gp-meter-color, var(--gp-ink));

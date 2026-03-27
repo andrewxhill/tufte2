@@ -24,7 +24,7 @@ A typographic and data-visualization CSS library derived from the books of Edwar
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.0/css/graphics-press.css">
+<link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.2/css/graphics-press.css">
 ```
 
 ### npm
@@ -60,7 +60,7 @@ module.exports = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.0/css/graphics-press.css">
+  <link rel="stylesheet" href="https://unpkg.com/@andrewxhill/graphics-press-css@4.7.2/css/graphics-press.css">
 </head>
 <body>
   <article>
