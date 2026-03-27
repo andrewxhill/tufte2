@@ -624,6 +624,7 @@
     transition: color 0.25s;
   }
   .marginnote img, .marginnote svg { max-width: 100%; height: auto; display: block; margin-bottom: var(--gp-space-xs); }
+  .marginnote svg { overflow: visible; }
   .marginnote-label { font-family: var(--gp-sans); font-size: var(--gp-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--gp-ghost-ink); display: block; margin-bottom: 2px; }
   label.sidenote-toggle { display: none; cursor: pointer; }
   label.sidenote-number { display: inline; }
