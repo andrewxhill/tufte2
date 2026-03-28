@@ -117,6 +117,34 @@
   ],
 }</code></pre>
 
+<h3>Next.js font variation</h3>
+<p>For a sans-driven application mode, load <code>Inter</code> and <code>JetBrains Mono</code> with <code>next/font/google</code> and opt into the variation with <code>.gp-font-inter</code> or <code>data-gp-font="inter"</code>.</p>
+<pre><code>import { Inter, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable} gp-font-inter`}
+    &gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre>
+<p>No external font <code>&lt;link&gt;</code> tags are required.</p>
+
 <!-- ═══ QUICK START ═══ -->
 <hr class="section-rule">
 <h2>Quick Start</h2>
