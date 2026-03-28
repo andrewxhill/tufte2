@@ -115,6 +115,49 @@ document.documentElement.dataset.theme = 'dark';  // or 'light'
 // `.dark` / `.light` classes also work
 ```
 
+## Font Variations
+
+The default library voice is still serif-forward. If you want a cleaner application mode, `tufte2` also supports an `Inter + JetBrains Mono` variation driven by `next/font/google`.
+
+```tsx
+import { Inter, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable} gp-font-inter`}
+    >
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+You can also switch the variation with an attribute instead of a class:
+
+```tsx
+<html
+  lang="en"
+  className={`${inter.variable} ${jetbrainsMono.variable}`}
+  data-gp-font="inter"
+>
+```
+
+That setup keeps font loading inside Next.js and avoids external font `<link>` tags entirely.
+
 ## Analytics Guidance
 
 - Make hierarchy loud and decoration quiet. Grouping, proportion, spacing, and line weight should orient the reader before color does.
