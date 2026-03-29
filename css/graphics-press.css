@@ -882,7 +882,11 @@
   .gp-badge--venue-ochre { color: var(--gp-ochre); }
   .gp-badge--quiet::before { display: none; }
 
-  .gp-panel { border: 0.5px solid var(--gp-light-rule); background: oklch(from var(--gp-paper) calc(l - 0.006) c h); }
+  .gp-panel {
+    padding-top: 0;
+    border: 0.5px solid var(--gp-light-rule);
+    background: oklch(from var(--gp-paper) calc(l - 0.006) c h);
+  }
   .gp-panel__header { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; padding: 0.9rem 1rem; border-bottom: 0.5px solid var(--gp-light-rule); }
   .gp-panel__title { margin: 0; max-width: none; font-size: 0.98rem; line-height: 1.2; font-style: normal; font-family: var(--gp-sans); color: var(--gp-ink); }
   .gp-panel__meta { font-family: var(--gp-sans); font-size: 0.8rem; color: var(--gp-margin-ink); }
